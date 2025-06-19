@@ -4,7 +4,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                bgColor:'#FEFEFE'
+                bgColor:'#FEFEFE',
+                rimary:'#6DBD44',
             }
           
         },

@@ -1,18 +1,23 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import {  CiSettings, CiUser } from 'react-icons/ci';
+import { CiSettings, CiUser } from 'react-icons/ci';
 
 
-import {  PiNoteDuotone } from 'react-icons/pi';
+import { PiNoteDuotone } from 'react-icons/pi';
 import { TbNotes } from 'react-icons/tb';
-import { MdKeyboardArrowUp, MdLogout, MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowUp, MdLogout, MdOutlineDriveFolderUpload, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useState } from 'react';
 import { BiCategory } from 'react-icons/bi';
 
 import Logo from '../shared/logo';
+import { BsPeople } from 'react-icons/bs';
+import { LuArrowRightLeft } from 'react-icons/lu';
 
 const menuItems = [
-    { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> }, // Using React Icon here
+    { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
     { label: 'Staff List', path: '/stafflist', icon: <CiUser size={22} /> },
+    { label: 'Clients Details', path: '/clients-details', icon: <BsPeople size={22} /> },
+    { label: 'Quote Update', path: '/quote-update', icon: <MdOutlineDriveFolderUpload size={22} /> },
+    { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
 
 ];
 
@@ -22,7 +27,7 @@ const settings = [
         icon: <CiSettings size={24} />,
         path: '',
         children: [
-        
+
             { label: 'Privacy & Policy', path: '/privacy-policy', icon: <PiNoteDuotone size={22} /> },
             { label: 'Terms & Condition', path: '/terms-condition', icon: <TbNotes size={22} /> },
         ],
@@ -39,23 +44,23 @@ const Sidebar = () => {
         navigate('/login');
     };
     return (
-        <div className="h-full fixed "  style={{ backgroundColor: '#FEFEFE', fontFamily: 'Poppins' }}>
+        <div className="h-full fixed " style={{ backgroundColor: '#FEFEFE', fontFamily: 'Poppins' }}>
             <div className="flex items-center justify-center pt-10 cursor-pointer">
-             <Logo></Logo>
+                <Logo></Logo>
             </div>
 
-            <div style={{ backgroundColor: '#FEFEFE', color: '#929292' }} className="mt-10 px-4">
+            <div style={{ backgroundColor: '#FEFEFE', color: '#929292' }} className="mt-10 ">
                 {menuItems.map((item) => {
                     return (
                         <div
                             key={item.path}
                             className={
                                 pathname === item.path
-                                    ? 'bg-[#6DBD44] rounded-r-full w-[90%] text-nowrap text-xl font-medium text-[#FEFEFE] transition-transform'
+                                    ? 'bg-[#6DBD44] rounded-r-full w-[90%] text-nowrap text-lg font-medium text-[#FEFEFE] transition-transform'
                                     : 'text-xl '
                             }
                         >
-                            <Link className={`flex items-center gap-4 text-xl  p-6 py-3`} to={item.path}>
+                            <Link className={`flex items-center gap-4 text-lg  p-6 py-3`} to={item.path}>
                                 <span>{item.icon}</span>
                                 {item.label}
                             </Link>

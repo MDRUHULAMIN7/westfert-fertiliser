@@ -3,7 +3,7 @@ import { IoIosNotificationsOutline } from 'react-icons/io';
 import { Link, useLocation } from 'react-router-dom';
 
 import { HiArrowSmallLeft } from 'react-icons/hi2';
-import PageTitle from './shared/PageTitle';
+import PageTitle from '../shared/PageTitle';
 
 const { Header } = Layout;
 
@@ -11,7 +11,9 @@ const path = [
     { path: '/', name: 'Analytics' },
     { path: '/stafflist', name: 'Staff List' },
     { path: '/faq', name: 'FAQ' },
-    { path: '/about-us', name: 'About Us' },
+    { path: '/clients-details', name: 'Clients Details' },
+    { path: '/quote-update', name: 'Quote Update' },
+    { path: '/quote-history', name: 'Quote History' },
     { path: '/notifications', name: 'Notifications' },
     { path: '/profile', name: 'Profile' },
     { path: '/edit-profile', name: 'Edit Profile' },
@@ -36,8 +38,8 @@ const HeaderDashboard = () => {
                 <div>
                     {currentPage ? (
                         currentPage.path === '/employee-details' ||
-                        currentPage.path === '/customer-details' ||
-                        currentPage.path === '/all-details' ? (
+                            currentPage.path === '/customer-details' ||
+                            currentPage.path === '/all-details' ? (
                             <div className="flex items-center gap-2">
                                 <HiArrowSmallLeft className="" size={25} /> <PageTitle>{currentPage.name}</PageTitle>
                             </div>
@@ -50,7 +52,7 @@ const HeaderDashboard = () => {
                 </div>
                 <div className="flex items-center justify-end gap-5 h-full ">
                     <div>
-                     
+
                         <Link to={'/notifications'}>
                             <div className="size-10 rounded-full p-6  flex items-center justify-center bg-[#F2F2F2] ">
                                 <button className="py-4 px-1 relative border-2 border-transparent rounded-full  focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">
@@ -60,7 +62,7 @@ const HeaderDashboard = () => {
                                         </div>
                                     </span>
 
-                                    < IoIosNotificationsOutline  size={22} />
+                                    < IoIosNotificationsOutline size={22} />
                                 </button>
                             </div>
                         </Link>
@@ -73,7 +75,7 @@ const HeaderDashboard = () => {
                             style={{
                                 height: '42px',
                                 cursor: 'pointer',
-                                
+
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '10px',
@@ -85,7 +87,7 @@ const HeaderDashboard = () => {
                                 style={{
                                     width: '44px',
                                     height: '44px',
-                                    
+
                                 }}
                                 alt=""
                             />
