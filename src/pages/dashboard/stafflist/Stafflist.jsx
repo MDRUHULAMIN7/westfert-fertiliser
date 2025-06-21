@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Table, Space } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 
-import StaffListHeader from '../../../components/shared/TableHeader';
-import staffData from '../../../../database/stafflist.json';
+import TableHeader from '../../../components/shared/TableHeader';
+import StaffAddModal from '../../../modal/StaffAddModal';
+import StaffTable from './StaffTable';
 
 const { Column } = Table;
 
 const Stafflist = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [modal, setModal] = useState(null);
+
 
 
   const onSelectChange = (newSelectedRowKeys) => {
@@ -22,21 +24,12 @@ const Stafflist = () => {
   };
 
   // Designation color logic
-  const getDesignationColor = (designation) => {
-    switch (designation) {
-      case 'Sales executive':
-        return '#006EEE';
-      case 'Manager':
-        return '#F97316';
-      default:
-        return '#333';
-    }
-  };
+  
 
   return (
     <section className="bg-[#F9F9F9] rounded-3xl">
       {/* Top Header */}
-      <StaffListHeader
+      <TableHeader
         title="Staff List"
         actionIcons={[
           <LockOutlined key="lock1" style={{ color: '#A1A1A1', fontSize: '22px', cursor: 'pointer' }} />,
@@ -49,44 +42,24 @@ const Stafflist = () => {
           icon: <img src="/stafflist/plus.png" alt="plus" />
         }}
         bgColor="bg-[#f0f0f0]"
+        setModal={setModal}
       />
 
       {/* Staff Table */}
-      <Table dataSource={staffData} rowSelection={rowSelection} pagination={{ pageSize: 10 }}>
-        <Column title="ID No." dataIndex="id" key="id" />
-        <Column title="Name" dataIndex="name" key="name" />
-        <Column title="Email" dataIndex="email" key="email" />
-        <Column title="Company Name" dataIndex="company" key="company" />
-        
-        <Column
-          title="Designation"
-          dataIndex="designation"
-          key="designation"
-          render={(text) => (
-            <span style={{ color: getDesignationColor(text), fontWeight: 600, fontSize: '14px' }}>
-              {text}
-            </span>
-          )}
-        />
+  <StaffTable  />
 
-        <Column
-          title="Action"
-          key="action"
-          render={(_, record) => (
-            <Space size="middle">
-              {/* Detail button: Different routes based on role */}
-              <Link to={record.designation === 'Manager' ? '/' : '/sales-details'}>
-                <img src="/stafflist/detail.png" alt="Detail" />
-              </Link>
 
-          
-              <Link to="/">
-                <LockOutlined style={{ color: '#A1A1A1', fontSize: '20px', cursor: 'pointer' }} />
-              </Link>
-            </Space>
-          )}
-        />
-      </Table>
+      {/* Modal for Add Media */}
+      {
+        modal && (
+          <StaffAddModal
+
+            isOpen={modal}
+            onClose={() => {
+              setModal(null), setEdit(null);
+            }}></StaffAddModal>
+        )
+      }
     </section>
   );
 };

@@ -13,7 +13,7 @@ const CustomSearch = () => {
       <Input
         placeholder="Search here"
         bordered={false}
-        className="ml-2 focus:outline-none w-40"
+        className="ml-2 focus:outline-none w-full"
       />
     </div>
   );
@@ -25,7 +25,8 @@ const TableHeader = ({
   showSearch = true,
   menuIcon = null,
   actionButton = null,
-  bgColor = 'bg-bgColor'
+  bgColor = 'bg-bgColor',
+  setModal = null
 }) => {
   return (
     <div className={`flex flex-col lg:flex-row justify-between items-center ${bgColor} p-4 rounded-tl-[24px] rounded-tr-[24px]`}>
@@ -46,7 +47,12 @@ const TableHeader = ({
         )}
 
         {actionButton && (
-          <div className='flex items-center gap-2 text-white text-[16px] bg-[#6DBD44] px-4 rounded-3xl py-2 cursor-pointer'>
+          <div
+            onClick={() => {
+              setModal && setModal(true);
+            }}
+            className='flex items-center gap-2 text-white text-[16px] bg-[#6DBD44] px-4 rounded-3xl py-2 cursor-pointer'
+          >
             {actionButton.icon}
             {actionButton.label}
           </div>
