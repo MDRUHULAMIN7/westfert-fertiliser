@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import DropdownFilterButton from './DropdownFilterButton';
 
 
 const { Search } = Input;
@@ -41,8 +42,10 @@ const TableHeader = ({
         </div>
 
         {menuIcon && (
-          <div className='bg-[#FBFBFB] shadow-md p-2.5 rounded-full'>
-            {menuIcon}
+          <div className='bg-[#FBFBFB] rounded-full'>
+            <DropdownFilterButton menuIcon={menuIcon}> 
+
+            </DropdownFilterButton>
           </div>
         )}
 
