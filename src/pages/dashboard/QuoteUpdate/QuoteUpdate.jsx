@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Table, Space, Select, } from 'antd';
 
 import StaffListHeader from '../../../components/shared/TableHeader';
@@ -7,6 +7,7 @@ const { Column } = Table;
 
 
 import data from '../../../../database/quote.json';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,7 +15,7 @@ import data from '../../../../database/quote.json';
 const QuoteUpdate = () => {
     const [dataSource, setDataSource] = useState(data);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
+    const navigate = useNavigate();
     const onSelectChange = (newSelectedRowKeys) => {
         setSelectedRowKeys(newSelectedRowKeys);
     };
@@ -91,17 +92,25 @@ const QuoteUpdate = () => {
                         </Select>
                     )}
                 />
+<Column
+  title="Action"
+  key="action"
+  render={(text, record) => (
+    <Space size="middle">
+      <img src="/pdf.png" alt="pdf" className="cursor-pointer" />
+      <button
+        onClick={() => {
+          navigate(`/quote-details/${record?.quoteNo}`, {
+            state: { from: '/quote-update' },
+          });
+        }}
+      >
+        <img src="/stafflist/detail.png" alt="detail" className="cursor-pointer" />
+      </button>
+    </Space>
+  )}
+/>
 
-                <Column
-                    title="Action"
-                    key="action"
-                    render={() => (
-                        <Space size="middle">
-                            <img src="/pdf.png" alt="pdf" className="cursor-pointer" />
-                            <img src="/stafflist/detail.png" alt="detail" className="cursor-pointer" />
-                        </Space>
-                    )}
-                />
             </Table>
         </section>
     );

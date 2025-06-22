@@ -15,7 +15,7 @@ import { LuArrowRightLeft } from 'react-icons/lu';
 const menuItems = [
     { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
     { label: 'Staff List', path: '/stafflist', icon: <CiUser size={22} /> },
-    { label: 'Clients Details', path: '/clients-details', icon: <BsPeople size={22} /> },
+    { label: 'Customer List', path: '/clients-details', icon: <BsPeople size={22} /> },
     { label: 'Quote Update', path: '/quote-update', icon: <MdOutlineDriveFolderUpload size={22} /> },
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
 

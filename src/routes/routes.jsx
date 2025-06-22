@@ -12,6 +12,9 @@ import EditProfilePage from "../pages/dashboard/EditProfilePage/EditProfilePage"
 import SalesDetailsPage from "../pages/dashboard/stafflist/SalesDetailsPage";
 import ChangePasswordPage from "../pages/dashboard/ChangePassword/ChangePasswordPage";
 import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage";
+import Modal from "../modal/Modal";
+import CustomerDetailsModal from "../modal/CustomerDetailsModal";
+import QuoteDetailsModal from "../modal/QuoteDetailsModal";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +44,10 @@ const router = createBrowserRouter([
                 element: <QuoteHistory />
             },
             {
+                path: "/quote-details/:id",
+                element: <QuoteDetailsModal isOpen={true} />
+            },
+            {
                 path: "/about",
                 element: <div>About Page</div>
             },
@@ -59,6 +66,14 @@ const router = createBrowserRouter([
             {
                 path: "/stafflist/:id/password",
                 element: <div><ChangePasswordPage  /></div>
+            },
+            {
+                path: "/stafflist/modal",
+                element: <div><Modal /></div>
+            },
+            {
+                path: "/customer-details/:id",
+                element: <div><CustomerDetailsModal isOpen={true} /></div>
             },
              
 

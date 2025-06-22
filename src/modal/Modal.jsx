@@ -39,8 +39,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   const params = useParams();
 
 
-  const backPath = location.state?.from || '/stafflist';
-  console.log(pathname, params, backPath, 'from modal');
+  const backPath = location.state?.from || "/stafflist" || "/clients-details" ;
+  console.log( backPath, 'from modal');
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -83,7 +83,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           <IoMdClose />
         </button>
 
-        <div className='overflow-y-scroll no-scrollbar max-h-[90vh] '>{children}</div>
+        <div className='overflow-y-scroll noscrollbar max-h-[90vh]'>{children}</div>
       </div>
     </div>
   );

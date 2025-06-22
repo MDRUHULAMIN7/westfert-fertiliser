@@ -34,7 +34,7 @@ export default function SalesDetailsModal({ isOpen, onClose, staff,modalType }) 
   
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="w-full lg:w-[1200px]  overflow-y-scroll no-scrollbar max-h-[90vh] 
+      <div className="w-full lg:w-[1200px]  
          p-3  text-gray-800 font-sans" >
         <h1 className="text-2xl font-bold mb-6">Employee Details</h1>
 
