@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Route } from "react-router-dom";
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import App from "../App";
 import ErrorPage from "../pages/error/ErrorPage";
@@ -7,6 +7,11 @@ import Stafflist from "../pages/dashboard/stafflist/Stafflist";
 import ClientsDetails from "../pages/dashboard/ClientsDetails/ClientsDetails";
 import QuoteUpdate from "../pages/dashboard/QuoteUpdate/QuoteUpdate";
 import QuoteHistory from "../pages/dashboard/QuoteHistory/QuoteHistory";
+import SalesDetailsModal from "../modal/SalesDetailsModal";
+import EditProfilePage from "../pages/dashboard/EditProfilePage/EditProfilePage";
+import SalesDetailsPage from "../pages/dashboard/stafflist/SalesDetailsPage";
+import ChangePasswordPage from "../pages/dashboard/ChangePassword/ChangePasswordPage";
+import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +44,24 @@ const router = createBrowserRouter([
                 path: "/about",
                 element: <div>About Page</div>
             },
+            {
+                path: "/stafflist/sales/:id/details",
+                element: <div><SalesDetailsPage /></div>
+            },
+            {
+                path: "/stafflist/manager/:id/details",
+                element: <div><ManagerDetailsPage /></div>
+            },
+            {
+                path: "/stafflist/:id/edit",
+                element: <div><EditProfilePage  /></div>
+            },
+            {
+                path: "/stafflist/:id/password",
+                element: <div><ChangePasswordPage  /></div>
+            },
+             
+
         ]
 
     }

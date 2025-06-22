@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import { useState } from "react";
 import SalesTable from "../pages/dashboard/stafflist/SalesTable";
 import TableHeader from "../components/shared/TableHeader";
-
+ import { useNavigate, useParams } from 'react-router-dom';
 
 const chartData = [
   { name: 'Jan', sale: 12000 },
@@ -22,16 +22,20 @@ const chartData = [
   { name: 'Dec', sale: 25000 },
 ];
 
-export default function SalesDetailsModal({ isOpen, onClose, staff }) {
-  if (!isOpen || !staff) return null;
+export default function SalesDetailsModal({ isOpen, onClose, staff,modalType }) {
+  if (!isOpen ) return null;
   const [selectedYear, setSelectedYear] = useState('Year');
-
+   const navigate = useNavigate();
     const handleYearChange = (value) => {
         setSelectedYear(value);
     };
+   
+     const { id } = useParams();
+  
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="w-full lg:w-[1200px] p-3  text-gray-800 font-sans">
+      <div className="w-full lg:w-[1200px]  overflow-y-scroll no-scrollbar max-h-[90vh] 
+         p-3  text-gray-800 font-sans" >
         <h1 className="text-2xl font-bold mb-6">Employee Details</h1>
 
    <div className="flex justify-between items-center mb-4">
@@ -88,9 +92,28 @@ export default function SalesDetailsModal({ isOpen, onClose, staff }) {
   </div>
 </div>
 
-<div className="flex  gap-x-5">
-  <img className="h-6" src="/setting.png" alt="" />
+<div className="flex items-start  gap-x-5">
+
+  <button
+   onClick={
+    () => navigate(`/stafflist/${id}/password`
+      ,{state: { from: `/stafflist/sales/${id}/details` }}
+    ) 
+}
+  ><img className="h-6" src="/setting.png" alt="" /></button>
+
+  <button onClick={
+    () => navigate(`/stafflist/${id}/edit`
+      ,{state: { from: `/stafflist/sales/${id}/details` }}
+    ) 
+}
+  
+    >
   <img className="h-6" src="/edit.png" alt="" />
+</button>
+
+  
+  
 </div>
 
 </div>
@@ -146,8 +169,9 @@ export default function SalesDetailsModal({ isOpen, onClose, staff }) {
             <TableHeader title="Work list of employees" menuIcon={<img className="h-5 w-5" src="/stafflist/three-dot.png" alt="menu" />}></TableHeader>
              <SalesTable></SalesTable>
             </div>
-      
+    
       </div>
+
     </Modal>
   );
 }

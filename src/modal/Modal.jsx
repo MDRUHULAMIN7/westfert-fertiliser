@@ -1,6 +1,6 @@
-import  { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
-
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const styles = {
   overlay: {
@@ -13,7 +13,7 @@ const styles = {
     zIndex: 1000,
   },
   modal: {
-    backgroundColor: '#f1f1f0',
+    backgroundColor: '#f5f6fc',
     color: '#B8B8B8',
     borderRadius: '15px',
     minWidth: '300px',
@@ -33,7 +33,14 @@ const styles = {
 const Modal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
   const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname;
+  const params = useParams();
 
+
+  const backPath = location.state?.from || '/stafflist';
+  console.log(pathname, params, backPath, 'from modal');
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -43,7 +50,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
     if (isOpen) {
       document.addEventListener('mousedown', handleOutsideClick);
-      setAnimate(true); 
+      setAnimate(true);
     } else {
       document.removeEventListener('mousedown', handleOutsideClick);
       setAnimate(false);
@@ -57,24 +64,26 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
- <div
+    <div
       style={styles.overlay}
-      className="flex justify-center items-center backdrop-blur-sm transition-opacity duration-300 animate-fade-in"
+      className="flex justify-center items-center backdrop-blur-sm transition-opacity duration-300 animate-fade-in "
     >
       <div
         ref={modalRef}
         style={styles.modal}
         onMouseDown={(e) => e.stopPropagation()}
-        className={`transform transition-all duration-300 ${
-          animate ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-5'
-        }`}
+        className={`transform transition-all duration-300 ${animate ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-5'
+          }`}
       >
-        {onClose && (
-          <button onClick={onClose} style={styles.closeButton} className="text-gray-800 h-5 w-5 pr-4">
-            <IoMdClose />
-          </button>
-        )}
-        <div>{children}</div>
+
+        <button
+          onClick={() => navigate(backPath)}
+
+          style={styles.closeButton} className="text-gray-800 h-5 w-5 pr-6 pt-2 ">
+          <IoMdClose />
+        </button>
+
+        <div className='overflow-y-scroll no-scrollbar max-h-[90vh] '>{children}</div>
       </div>
     </div>
   );

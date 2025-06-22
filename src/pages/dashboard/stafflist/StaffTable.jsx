@@ -2,17 +2,13 @@ import { Table, Space } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import staffData from '../../../../database/stafflist.json';
-
-import ManagerDetailsModal from '../../../modal/ManagerDetailsModal';
-import SalesDetailsModal from '../../../modal/SalesDetailsModal';
+import { useNavigate } from 'react-router-dom';
 
 const { Column } = Table;
 
 const StaffTable = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [selectedStaff, setSelectedStaff] = useState(null);
-  const [modalType, setModalType] = useState(null);
-
+  const navigate = useNavigate();
   const onSelectChange = (newSelectedRowKeys) => {
     setSelectedRowKeys(newSelectedRowKeys);
   };
@@ -29,7 +25,7 @@ const StaffTable = () => {
       case 'Manager':
         return '#F97316';
       default:
-        return '#333';
+        return '#006EEE';
     }
   };
 
@@ -68,12 +64,16 @@ const StaffTable = () => {
             <Space size="middle">
               <span
                 onClick={() => {
-                  setSelectedStaff(record);
-                  setModalType(record.designation === 'Manager' ? 'manager' : 'sales');
+
+                  navigate(
+                    `/stafflist/${record.designation === 'Manager' ? 'manager' : 'sales'}/${record.id}/details`,
+                    { state: { from: '/stafflist' } }
+                  );
+                  ;
                 }}
                 className="text-blue-500 underline cursor-pointer"
               >
-                 <img src="/stafflist/detail.png" alt="Detail" />
+                <img src="/stafflist/detail.png" alt="Detail" />
               </span>
               <LockOutlined style={{ color: '#A1A1A1', fontSize: '20px', cursor: 'pointer' }} />
             </Space>
@@ -81,21 +81,7 @@ const StaffTable = () => {
         />
       </Table>
 
-      {/* Conditional Modal Rendering */}
-     {modalType === 'sales' && selectedStaff && (
-  <SalesDetailsModal
-    isOpen={true}
-    staff={selectedStaff}
-    onClose={() => setModalType(null)}
-  />
-)}
-         {modalType === 'manager' && selectedStaff && (
-  <ManagerDetailsModal
-    isOpen={true}
-    staff={selectedStaff}
-    onClose={() => setModalType(null)}
-  />
-)}
+
     </>
   );
 };

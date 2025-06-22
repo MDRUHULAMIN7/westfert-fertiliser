@@ -40,7 +40,7 @@ const SalesTable = () => {
     <Table
       dataSource={staffData}
     
-      pagination={{ pageSize: 3 }}
+      pagination={{ pageSize: 4 }}
       
     >
       <Column title="Quote. no." dataIndex="id" key="id" />
