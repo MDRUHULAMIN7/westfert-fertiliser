@@ -17,6 +17,8 @@ import RawMaterialEditModal from "../modal/RawMaterialEditModal";
 import EditProfileModal from "../modal/EditProfileModal";
 import ChangePasswordModal from "../modal/ChangePasswordModal";
 import StandardRecipes from "../pages/dashboard/StandardRecipes/StandardRecipes";
+import StandardRecipesModal from "../modal/StandardRecipesDetailsModal";
+import StandardRecipesEditModal from "../modal/StandardRecipesEditModal";
 
 
 const router = createBrowserRouter([
@@ -94,6 +96,14 @@ const router = createBrowserRouter([
              path:"/standard-recipes",
              element:<div><StandardRecipes/></div>
 
+            },
+             {
+                path: "/standard-recipes/:id/details",
+                element: <StandardRecipesModal isOpen={true} />
+            },
+             {
+                path: "/standard-recipes/:id/edit",
+                element: <StandardRecipesEditModal isOpen={true} />
             },
             
 

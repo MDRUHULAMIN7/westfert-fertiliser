@@ -1,8 +1,7 @@
 import { Table, Space } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LockOutlined } from '@ant-design/icons';
-import MaterialData from '../../../../database/material.json';
+import StandardData from '../../../../database/standard.json';
 import DeleteModal from '../../../modal/DeleteModal';
 
 
@@ -25,13 +24,13 @@ const StandardTable = () => {
   return (
     <>
       <Table
-        dataSource={MaterialData}
+        dataSource={StandardData}
         rowSelection={rowSelection}
         pagination={{ pageSize: 10 }}
-        rowKey="materialCode"
+        rowKey="recipeCode"
       >
         {/* Material Code */}
-        <Column title="Material Code" dataIndex="materialCode" key="materialCode" />
+        <Column title="Recipe Code" dataIndex="recipeCode" key="recipeCode" />
 
         {/* Name with Photo */}
         <Column
@@ -67,7 +66,7 @@ const StandardTable = () => {
               {/* Detail button */}
               <img
                 onClick={() => {
-                  navigate(`/raw-material/${record?.materialCode}/details`, {
+                  navigate(`/standard-recipes/${record?.materialCode}/details`, {
                     state: { from: `/standard-recipes` },
                   });
                 }}
@@ -79,8 +78,8 @@ const StandardTable = () => {
               {/* Edit button */}
               <img
                 onClick={() => {
-                  navigate(`/raw-material/${record?.materialCode}/edit`, {
-                    state: { from: `/standard-recipes` },
+                  navigate(`/standard-recipes/${record?.materialCode}/edit`, {
+                    state: { from:`/standard-recipes` },
                   });
                 }}
                 src="/edit.png"
