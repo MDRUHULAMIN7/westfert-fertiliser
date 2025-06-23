@@ -26,6 +26,8 @@ import About from "../pages/dashboard/About/About";
 import Terms from "../pages/dashboard/Terms/Terms";
 import AdminProfile from "../pages/dashboard/AdminProfile";
 import Notifications from "../pages/dashboard/Notifications";
+import SignInLayout from "../components/layout/SignInLayout";
+import SignIn from "../pages/SignIn/SignIn/SignIn";
 
 
 const router = createBrowserRouter([
@@ -135,9 +137,19 @@ const router = createBrowserRouter([
         element: <Notifications />
       },
     ]
-
-
-  }
+  },
+  {
+       path:"/signin",
+       element:<SignInLayout></SignInLayout>,
+       errorElement: <ErrorPage></ErrorPage>,
+       children:[
+        {
+         index: true,
+          element:<div> <SignIn/> </div>
+        },
+       ]
+  },
+  
 ]);
 
 export default router;
