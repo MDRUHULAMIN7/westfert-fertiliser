@@ -54,7 +54,7 @@ const TableHeader = ({
             onClick={() => {
               setModal && setModal(true);
             }}
-            className='flex items-center gap-2 text-white text-[16px] bg-[#6DBD44] px-4 rounded-3xl py-2 cursor-pointer'
+            className='flex items-center gap-2 text-white text-[16px] bg-primary px-4 rounded-3xl py-2 cursor-pointer'
           >
             {actionButton.icon}
             {actionButton.label}

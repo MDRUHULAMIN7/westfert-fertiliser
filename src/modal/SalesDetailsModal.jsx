@@ -143,7 +143,7 @@ export default function SalesDetailsModal({ isOpen, onClose, staff,modalType }) 
             <div className="flex flex-col text-sm mb-4 ">
 
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#6DBD44]"></span>
+                <span className="w-3 h-3 rounded-full bg-primary"></span>
                 <p>Total Sale: <span>R20,204.0</span></p>
               </div>
               <div className="flex items-center gap-2">

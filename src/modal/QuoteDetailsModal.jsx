@@ -50,7 +50,7 @@ export default function QuoteDetailsModal({ isOpen, onClose }) {
           <h1>
             <span className="font-medium text-[#797761]">Quotes status:</span>
             <span
-              className={`ml-2 ${quoteDetailsData.status === "Accepted" ? "text-[#6DBD44]" : "text-red-500"
+              className={`ml-2 ${quoteDetailsData.status === "Accepted" ? "text-primary" : "text-red-500"
                 } font-medium`}
             >
               {quoteDetailsData.status}
@@ -132,7 +132,7 @@ export default function QuoteDetailsModal({ isOpen, onClose }) {
               </div>
               <span className="text-center">{quoteDetailsData.recipe.item}</span>
               <span className="text-center">{quoteDetailsData.recipe.weight}</span>
-              <span className="text-right text-[#6DBD44]">
+              <span className="text-right text-primary">
                 {quoteDetailsData.recipe.price}
               </span>
             </div>
@@ -156,7 +156,7 @@ export default function QuoteDetailsModal({ isOpen, onClose }) {
               <span>Freight & Logistics</span>
               <span>{quoteDetailsData.summary.freight}</span>
             </div>
-            <p className="text-xs text-[#6DBD44] mb-2">Freight based on rate, weight and distance</p>
+            <p className="text-xs text-primary mb-2">Freight based on rate, weight and distance</p>
             <div className="flex justify-between mb-2 text-xs text-blue-600">
               <span className="cursor-pointer">Adjust Points</span>
               <span>{quoteDetailsData.summary.points}</span>

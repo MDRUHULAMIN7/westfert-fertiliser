@@ -34,7 +34,7 @@ const CustomTooltip = ({ payload}) => {
                 }}
             >
 
-                <p className="h-2 w-2 bg-[#6DBD44] rounded-full"></p> <p>{`${value}tn`}</p>
+                <p className="h-2 w-2 bg-primary rounded-full"></p> <p>{`${value}tn`}</p>
             </div>
         );
     }

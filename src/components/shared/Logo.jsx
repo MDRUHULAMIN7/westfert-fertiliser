@@ -8,7 +8,7 @@ const Logo = () => {
             <h6 className="text-[12px] font-medium text-center text-gray-400">FERTILISERS</h6>
         </div>
 
-        <div className="w-12 h-12 bg-[#6DBD44]"></div>
+        <div className="w-12 h-12 bg-primary"></div>
     </div>
   )
 }

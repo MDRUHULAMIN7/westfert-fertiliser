@@ -107,7 +107,7 @@ export default function RawMaterialEditModal({ isOpen, onClose }) {
               <Form.Item className="text-right mt-20">
                 <button
                   type="submit"
-                  className="bg-[#6DBD44] w-[140px] hover:bg-green-600 text-white font-medium  py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                  className="bg-primary w-[140px] hover:bg-green-600 text-white font-medium  py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {loading ? <Spin className="w-full " /> : 'Save & Change'}
                 </button>

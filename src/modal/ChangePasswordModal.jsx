@@ -126,7 +126,7 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
           <Form.Item className="mt-6">
             <button
               type="submit"
-              className="bg-[#6DBD44] mx-auto hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 w-[180px]"
+              className="bg-primary mx-auto hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 w-[180px]"
             >
               Save & Change
             </button>

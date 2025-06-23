@@ -24,7 +24,7 @@ export default function DeleteModal({ materialCode, onClose }) {
         <div className="flex justify-center gap-x-6">
           <button
             onClick={onClose}
-            className="border border-[#6DBD44] text-[#6DBD44] px-6 py-2 text-lg rounded-md hover:bg-green-50 transition"
+            className="border border-primary text-primary px-6 py-2 text-lg rounded-md hover:bg-green-50 transition"
           >
             Cancel
           </button>

@@ -3,14 +3,10 @@ import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import App from "../App";
 import ErrorPage from "../pages/error/ErrorPage";
 import Stafflist from "../pages/dashboard/stafflist/Stafflist";
-
 import ClientsDetails from "../pages/dashboard/ClientsDetails/ClientsDetails";
 import QuoteUpdate from "../pages/dashboard/QuoteUpdate/QuoteUpdate";
 import QuoteHistory from "../pages/dashboard/QuoteHistory/QuoteHistory";
-import SalesDetailsModal from "../modal/SalesDetailsModal";
-
 import SalesDetailsPage from "../pages/dashboard/stafflist/SalesDetailsPage";
-
 import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage";
 import Modal from "../modal/Modal";
 import CustomerDetailsModal from "../modal/CustomerDetailsModal";
@@ -20,6 +16,7 @@ import MaterialDetailsModal from "../modal/MaterialDetailsModal";
 import RawMaterialEditModal from "../modal/RawMaterialEditModal";
 import EditProfileModal from "../modal/EditProfileModal";
 import ChangePasswordModal from "../modal/ChangePasswordModal";
+import StandardRecipes from "../pages/dashboard/StandardRecipes/StandardRecipes";
 
 
 const router = createBrowserRouter([
@@ -92,6 +89,11 @@ const router = createBrowserRouter([
             {
                 path: "/customer-details/:id",
                 element: <div><CustomerDetailsModal isOpen={true} /></div>
+            },
+            {
+             path:"/standard-recipes",
+             element:<div><StandardRecipes/></div>
+
             },
             
 

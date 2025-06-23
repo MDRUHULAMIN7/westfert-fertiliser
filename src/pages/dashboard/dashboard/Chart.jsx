@@ -32,8 +32,8 @@ export default function Chart() {
             <div className="flex items-center justify-between my-4 ">
                 <h1 className="font-bold text-[20px]">Earning <span className='font-normal'>Statistics</span></h1>
                 <div className="flex justify-center items-center gap-7">
-                    <div className="text-[#6DBD44] flex justify-center items-center gap-2">
-                        <p className="h-3 w-3 bg-[#6DBD44] rounded-full"></p>
+                    <div className="text-primary flex justify-center items-center gap-2">
+                        <p className="h-3 w-3 bg-primary rounded-full"></p>
                         <h1>Earning</h1>
                     </div>
                     <div className="text-[#6CA0DC] flex justify-center items-center gap-2">

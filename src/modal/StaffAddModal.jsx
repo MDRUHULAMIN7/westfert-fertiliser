@@ -144,7 +144,7 @@ export default function StaffAddModal({ isOpen, onClose }) {
             <Form.Item>
               <Button
                 htmlType="submit"
-                className="w-full lg:w-[470px] mx-auto bg-[#6DBD44] text-white rounded-md h-10"
+                className="w-full lg:w-[470px] mx-auto bg-primary text-white rounded-md h-10"
                 style={{
                   borderColor: '#188754',
                 }}

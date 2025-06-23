@@ -11,6 +11,7 @@ import { BiCategory } from 'react-icons/bi';
 import Logo from '../shared/logo';
 import { BsPeople } from 'react-icons/bs';
 import { LuArrowRightLeft } from 'react-icons/lu';
+import { GiFertilizerBag } from 'react-icons/gi';
 
 const menuItems = [
     { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
@@ -19,6 +20,7 @@ const menuItems = [
     { label: 'Quote Update', path: '/quote-update', icon: <MdOutlineDriveFolderUpload size={22} /> },
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
     { label: 'Raw Material ', path: '/raw-material', icon:<PiHandCoinsThin size={22} /> },
+    { label: 'Standard Recipes', path: '/standard-recipes', icon:<GiFertilizerBag size={22} /> },
 
 ];
 
@@ -57,7 +59,7 @@ const Sidebar = () => {
                             key={item.path}
                             className={
                                 pathname === item.path
-                                    ? 'bg-[#6DBD44] rounded-r-full w-[90%] text-nowrap text-lg font-medium text-[#FEFEFE] transition-transform'
+                                    ? 'bg-primary rounded-r-full w-[90%] text-nowrap text-lg font-medium text-[#FEFEFE] transition-transform'
                                     : 'text-xl '
                             }
                         >

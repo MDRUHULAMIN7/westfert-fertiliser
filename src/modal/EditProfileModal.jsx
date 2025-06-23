@@ -113,7 +113,7 @@ export default function EditProfileModal({ isOpen, onClose }) {
                     <Form.Item className="text-center mt-6">
                         <button
                             type="submit"
-                            className="bg-[#6DBD44] hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300"
+                            className="bg-primary hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300"
                         >
                             Save & Change
                         </button>

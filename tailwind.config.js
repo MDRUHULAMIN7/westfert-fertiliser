@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         bgColor: '#FEFEFE',
-        rimary: '#6DBD44', 
+        primary: '#6DBD44', 
       },
     },
   },
