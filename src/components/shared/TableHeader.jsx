@@ -31,7 +31,7 @@ const TableHeader = ({
 }) => {
   return (
     <div className={`flex flex-col lg:flex-row justify-between items-center ${bgColor} p-4 rounded-tl-[24px] rounded-tr-[24px]`}>
-      <h1 className="text-2xl font-bold">{title}</h1>
+      <h1 className="text-2xl font-medium">{title}</h1>
 
       <div className='flex flex-col lg:flex-row items-center gap-4 mt-4 lg:mt-0'>
         <div className='flex items-center gap-4 '>

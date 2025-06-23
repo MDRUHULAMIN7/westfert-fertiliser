@@ -15,6 +15,8 @@ import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage"
 import Modal from "../modal/Modal";
 import CustomerDetailsModal from "../modal/CustomerDetailsModal";
 import QuoteDetailsModal from "../modal/QuoteDetailsModal";
+import RawMaterial from "../pages/dashboard/RawMaterial/RawMaterial";
+import MaterialDetailsModal from "../modal/MaterialDetailsModal";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
             {
                 path: "/quote-history",
                 element: <QuoteHistory />
+            },
+            {
+                path: "/raw-material",
+                element: <RawMaterial />
+            },
+            {
+                path: "/raw-material/:id/details",
+                element: <MaterialDetailsModal isOpen={true} />
             },
             {
                 path: "/quote-details/:id",

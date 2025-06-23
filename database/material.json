@@ -1,0 +1,92 @@
+[
+  {
+    "materialCode": "70",
+    "name": "KAN",
+    "photo": "http://image.png",
+    "components": "N+P+K+34Zn+S",
+    "weight": "1 Tonnes",
+    "price": "200.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "71",
+    "name": "UREA",
+    "photo": "http://image.png",
+    "components": "N+P+S",
+    "weight": "1.2 Tonnes",
+    "price": "220.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "72",
+    "name": "DAP",
+    "photo": "http://image.png",
+    "components": "P+K+Zn",
+    "weight": "0.8 Tonnes",
+    "price": "180.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "73",
+    "name": "MAP",
+    "photo": "http://image.png",
+    "components": "N+P",
+    "weight": "1.5 Tonnes",
+    "price": "250.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "74",
+    "name": "MOP",
+    "photo": "http://image.png",
+    "components": "K+Zn+S",
+    "weight": "1 Tonnes",
+    "price": "210.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "75",
+    "name": "SSP",
+    "photo": "http://image.png",
+    "components": "P+S",
+    "weight": "0.9 Tonnes",
+    "price": "190.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "76",
+    "name": "NPK 20-20-20",
+    "photo": "http://image.png",
+    "components": "N+P+K",
+    "weight": "1.1 Tonnes",
+    "price": "260.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "77",
+    "name": "Zinc Sulphate",
+    "photo": "http://image.png",
+    "components": "Zn+S",
+    "weight": "0.7 Tonnes",
+    "price": "150.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "78",
+    "name": "Gypsum",
+    "photo": "http://image.png",
+    "components": "Ca+S",
+    "weight": "1.3 Tonnes",
+    "price": "170.00",
+    "actions": ""
+  },
+  {
+    "materialCode": "79",
+    "name": "Ammonium Nitrate",
+    "photo": "http://image.png",
+    "components": "N+S",
+    "weight": "1 Tonnes",
+    "price": "240.00",
+    "actions": ""
+  }
+]

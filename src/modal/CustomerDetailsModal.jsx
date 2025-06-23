@@ -1,6 +1,6 @@
 
 import Modal from "./Modal";
-import { useState } from "react";
+
 import TableHeader from "../components/shared/TableHeader";
  import { useNavigate, useParams } from 'react-router-dom';
 import CustomerTable from "../pages/dashboard/ClientsDetails/CustomerTable";
@@ -8,11 +8,9 @@ import CustomerTable from "../pages/dashboard/ClientsDetails/CustomerTable";
 
 export default function CustomerDetailsModal({ isOpen, onClose, }) {
   if (!isOpen ) return null;
-  const [selectedYear, setSelectedYear] = useState('Year');
+
    const navigate = useNavigate();
-    const handleYearChange = (value) => {
-        setSelectedYear(value);
-    };
+
    
      const { id } = useParams();
   

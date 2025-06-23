@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import Button from '../components/shared/Button';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-import SuspenseWithLoader from '../components/SuspenseWithLoader';
+import SuspenseWithLoader from '../components/shared/SuspenseWithLoader';
 
 export default function StaffAddModal({ isOpen, onClose }) {
   const [form] = Form.useForm();

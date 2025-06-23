@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CiSettings, CiUser } from 'react-icons/ci';
 
 
-import { PiNoteDuotone } from 'react-icons/pi';
+import { PiHandCoinsThin, PiNoteDuotone } from 'react-icons/pi';
 import { TbNotes } from 'react-icons/tb';
 import { MdKeyboardArrowUp, MdLogout, MdOutlineDriveFolderUpload, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useState } from 'react';
@@ -18,6 +18,7 @@ const menuItems = [
     { label: 'Customer List', path: '/clients-details', icon: <BsPeople size={22} /> },
     { label: 'Quote Update', path: '/quote-update', icon: <MdOutlineDriveFolderUpload size={22} /> },
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
+    { label: 'Raw Material ', path: '/raw-material', icon:<PiHandCoinsThin size={22} /> },
 
 ];
 

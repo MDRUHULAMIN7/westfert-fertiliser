@@ -18,6 +18,7 @@ const path = [
     { path: '/profile', name: 'Profile' },
     { path: '/edit-profile', name: 'Edit Profile' },
     { path: '/change-password', name: 'Change Password' },
+    { path: '/raw-material', name: 'Raw Material' },
 ];
 
 const HeaderDashboard = () => {
