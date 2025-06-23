@@ -66,14 +66,13 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div
       style={styles.overlay}
-      className="flex justify-center items-center backdrop-blur-sm transition-opacity duration-300 animate-fade-in "
+      className="flex justify-center items-center backdrop-blur-sm  "
     >
       <div
         ref={modalRef}
         style={styles.modal}
         onMouseDown={(e) => e.stopPropagation()}
-        className={`transform transition-all duration-300 ${animate ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-5'
-          }`}
+      
       >
 
         <button
@@ -83,7 +82,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           <IoMdClose />
         </button>
 
-        <div className='overflow-y-scroll noscrollbar max-h-[90vh]'>{children}</div>
+        <div className='overflow-y-scroll noscrollbar min-h-[790px]'>{children}</div>
       </div>
     </div>
   );

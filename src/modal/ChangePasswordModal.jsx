@@ -18,7 +18,7 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="w-full lg:w-[1000px] p-3 pt-4 mx-auto">
+      <div className="w-full lg:w-[1200px] p-3 pt-4 mx-auto">
         <h1 className="text-2xl text-gray-800">Change Password</h1>
 
         <Form

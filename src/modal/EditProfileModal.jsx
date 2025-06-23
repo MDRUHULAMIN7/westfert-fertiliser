@@ -12,7 +12,7 @@ export default function EditProfileModal({ isOpen, onClose }) {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
-            <div className="w-full lg:w-[1000px] p-3 pt-5">
+            <div className="w-full lg:min-w-[1200px]  p-3 pt-5">
                 <h1 className="text-2xl font-medium text-gray-800">Edit Profile</h1>
 
                 <Form
@@ -27,7 +27,7 @@ export default function EditProfileModal({ isOpen, onClose }) {
                         contact2: 'Square',
                         address: 'Netherlands',
                     }}
-                    className="bg-bgColor mt-6 p-6 rounded-2xl text-[#636363]"
+                    className="bg-bgColor h-[700px] mt-6 p-6 rounded-2xl text-[#636363]"
                 >
                     {/* Profile Picture */}
                     <Form.Item
