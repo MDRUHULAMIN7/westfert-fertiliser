@@ -82,7 +82,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           <IoMdClose />
         </button>
 
-        <div className='overflow-y-scroll noscrollbar min-h-[790px]'>{children}</div>
+        <div className='overflow-y-scroll noscrollbar min-h-[790px] max-h-[791px]'>{children}</div>
       </div>
     </div>
   );

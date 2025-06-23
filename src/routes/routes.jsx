@@ -8,15 +8,19 @@ import ClientsDetails from "../pages/dashboard/ClientsDetails/ClientsDetails";
 import QuoteUpdate from "../pages/dashboard/QuoteUpdate/QuoteUpdate";
 import QuoteHistory from "../pages/dashboard/QuoteHistory/QuoteHistory";
 import SalesDetailsModal from "../modal/SalesDetailsModal";
-import EditProfilePage from "../pages/dashboard/EditProfilePage/EditProfilePage";
+
 import SalesDetailsPage from "../pages/dashboard/stafflist/SalesDetailsPage";
-import ChangePasswordPage from "../pages/dashboard/ChangePassword/ChangePasswordPage";
+
 import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage";
 import Modal from "../modal/Modal";
 import CustomerDetailsModal from "../modal/CustomerDetailsModal";
 import QuoteDetailsModal from "../modal/QuoteDetailsModal";
 import RawMaterial from "../pages/dashboard/RawMaterial/RawMaterial";
 import MaterialDetailsModal from "../modal/MaterialDetailsModal";
+import RawMaterialEditModal from "../modal/RawMaterialEditModal";
+import EditProfileModal from "../modal/EditProfileModal";
+import ChangePasswordModal from "../modal/ChangePasswordModal";
+
 
 const router = createBrowserRouter([
     {
@@ -54,6 +58,10 @@ const router = createBrowserRouter([
                 element: <MaterialDetailsModal isOpen={true} />
             },
             {
+                path: "/raw-material/:id/edit",
+                element: <RawMaterialEditModal isOpen={true} />
+            },
+            {
                 path: "/quote-details/:id",
                 element: <QuoteDetailsModal isOpen={true} />
             },
@@ -71,11 +79,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/stafflist/:id/edit",
-                element: <div><EditProfilePage  /></div>
+                element: <div><EditProfileModal isOpen={true}  /></div>
             },
             {
                 path: "/stafflist/:id/password",
-                element: <div><ChangePasswordPage  /></div>
+                element: <div><ChangePasswordModal isOpen={true}  /></div>
             },
             {
                 path: "/stafflist/modal",
@@ -85,7 +93,7 @@ const router = createBrowserRouter([
                 path: "/customer-details/:id",
                 element: <div><CustomerDetailsModal isOpen={true} /></div>
             },
-             
+            
 
         ]
 

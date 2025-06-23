@@ -1,14 +1,18 @@
 import { Table, Space } from 'antd';
-import { LockOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import MaterialData from '../../../../database/material.json';
 import { useNavigate } from 'react-router-dom';
+import { LockOutlined } from '@ant-design/icons';
+import MaterialData from '../../../../database/material.json';
+import DeleteModal from '../../../modal/DeleteModal';
+
 
 const { Column } = Table;
 
 const MaterialTable = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [deleteTarget, setDeleteTarget] = useState(null); // <- Track modal target
   const navigate = useNavigate();
+
   const onSelectChange = (newSelectedRowKeys) => {
     setSelectedRowKeys(newSelectedRowKeys);
   };
@@ -18,67 +22,93 @@ const MaterialTable = () => {
     onChange: onSelectChange,
   };
 
-
-
   return (
     <>
+      <Table
+        dataSource={MaterialData}
+        rowSelection={rowSelection}
+        pagination={{ pageSize: 10 }}
+        rowKey="materialCode"
+      >
+        {/* Material Code */}
+        <Column title="Material Code" dataIndex="materialCode" key="materialCode" />
 
+        {/* Name with Photo */}
+        <Column
+          title="Name"
+          key="nameWithPhoto"
+          render={(_, record) => (
+            <div className="flex items-center gap-2">
+              <img
+                src="/recipe.png"
+                alt={record.name}
+                className="w-12 h-12 rounded-full"
+              />
+              <span className="ml-4">{record.name}</span>
+            </div>
+          )}
+        />
 
-<Table
-  dataSource={MaterialData}
-  rowSelection={rowSelection}
-  pagination={{ pageSize: 10 }}
-  rowKey="materialCode"
->
-  {/* Material Code */}
-  <Column  title="Material Code" dataIndex="materialCode" key="materialCode" />
+        {/* Components */}
+        <Column title="Components" dataIndex="components" key="components" />
 
-  {/* Name with Photo */}
-  <Column
-    title="Name"
-    key="nameWithPhoto"
-    render={(_, record) => (
-      <div className="flex items-center gap-2">
-        <img src={ '/recipe.png'} alt={record.name} className="w-12 h-12 rounded-full " />
-        <span className='ml-4'>{record.name}</span>
-      </div>
-    )}
-  />
+        {/* Weight */}
+        <Column title="Weight" dataIndex="weight" key="weight" />
 
-  {/* Components */}
-  <Column title="Components" dataIndex="components" key="components" />
+        {/* Price */}
+        <Column title="Price" dataIndex="price" key="price" />
 
-  {/* Weight */}
-  <Column title="Weight" dataIndex="weight" key="weight" />
+        {/* Actions */}
+        <Column
+          title="Action"
+          key="action"
+          render={(_, record) => (
+            <Space size="middle">
+              {/* Detail button */}
+              <img
+                onClick={() => {
+                  navigate(`/raw-material/${record?.materialCode}/details`, {
+                    state: { from: `/raw-material` },
+                  });
+                }}
+                src="/stafflist/detail.png"
+                alt="Detail"
+                className="cursor-pointer"
+              />
 
-  {/* Price */}
-  <Column title="Price" dataIndex="price" key="price" />
+              {/* Edit button */}
+              <img
+                onClick={() => {
+                  navigate(`/raw-material/${record?.materialCode}/edit`, {
+                    state: { from: `/raw-material` },
+                  });
+                }}
+                src="/edit.png"
+                alt="Edit"
+                className="cursor-pointer h-5"
+              />
 
-  {/* Actions */}
-  <Column
-    title="Action"
-    key="action"
-    render={(_, record) => (
-      <Space size="middle">
+              {/* Delete button */}
+              <button>
+                <img
+                  onClick={() => setDeleteTarget(record?.materialCode)}
+                  src="/delete.png"
+                  alt="Delete"
+                  className="cursor-pointer h-6"
+                />
+              </button>
 
-        <img onClick={() => {
-
-                  navigate(
-                    `/raw-material/${record?.materialCode}/details`,
-                    { state: { from: `/raw-material` } }
-                  );
-                  ;
-                }} src="/stafflist/detail.png" alt="Detail" className="cursor-pointer" />
-        <img src="/edit.png" alt="Detail" className="cursor-pointer h-5" />
-        <img src="/delete.png" alt="Detail" className="cursor-pointer h-6" />
-        
-      </Space>
-    )}
-  />
-</Table>
-
-
-
+              {/* Conditional Modal per row */}
+              {deleteTarget === record?.materialCode && (
+                <DeleteModal
+                  materialCode={record?.materialCode}
+                  onClose={() => setDeleteTarget(null)}
+                />
+              )}
+            </Space>
+          )}
+        />
+      </Table>
     </>
   );
 };
