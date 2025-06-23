@@ -12,6 +12,7 @@ import Logo from '../shared/logo';
 import { BsPeople } from 'react-icons/bs';
 import { LuArrowRightLeft } from 'react-icons/lu';
 import { GiFertilizerBag } from 'react-icons/gi';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
 
 const menuItems = [
     { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
@@ -21,6 +22,7 @@ const menuItems = [
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
     { label: 'Raw Material ', path: '/raw-material', icon:<PiHandCoinsThin size={22} /> },
     { label: 'Standard Recipes', path: '/standard-recipes', icon:<GiFertilizerBag size={22} /> },
+   
 
 ];
 
@@ -30,8 +32,8 @@ const settings = [
         icon: <CiSettings size={24} />,
         path: '',
         children: [
-
-            { label: 'Privacy & Policy', path: '/privacy-policy', icon: <PiNoteDuotone size={22} /> },
+             { label: 'App Support', path: '/app-support', icon:<PiNoteDuotone size={22} /> },
+            { label: 'About Westfert', path: '/about', icon: <IoMdInformationCircleOutline size={22} /> },
             { label: 'Terms & Condition', path: '/terms-condition', icon: <TbNotes size={22} /> },
         ],
     },
@@ -91,16 +93,18 @@ const Sidebar = () => {
                         <div key={setting.path}>
                             {setting.children.map((child) => (
                                 <div
-                                    key={`${setting.path}-${child.path}`}
-                                    className={
-                                        pathname === child.path ? 'bg-[#FFB953] rounded-r-full  w-[3%] text-nowrap' : ''
-                                    }
-                                >
-                                    <Link to={child.path} className="flex items-center gap-4 p-6 py-2">
-                                        <span>{child.icon}</span>
-                                        {child.label}
-                                    </Link>
-                                </div>
+  key={`${setting.path}-${child.path}`}
+  className={
+    pathname === child.path
+      ? 'bg-primary rounded-r-full w-[90%] text-nowrap text-lg font-medium text-[#FEFEFE] transition-transform'
+      : 'text-xl'
+  }
+>
+  <Link to={child.path} className="flex items-center gap-4 text-lg p-6 py-3">
+    <span>{child.icon}</span>
+    {child.label}
+  </Link>
+</div>
                             ))}
                         </div>
                     ))}

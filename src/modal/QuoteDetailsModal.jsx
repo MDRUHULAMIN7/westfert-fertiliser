@@ -1,11 +1,8 @@
 import Modal from "./Modal";
-import { useParams } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function QuoteDetailsModal({ isOpen, onClose }) {
-  const { id } = useParams();
 
-  if (!isOpen) return null;
 
   const quoteDetailsData = {
     quoteNo: "2472",

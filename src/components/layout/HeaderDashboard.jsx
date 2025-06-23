@@ -20,6 +20,9 @@ const path = [
     { path: '/change-password', name: 'Change Password' },
     { path: '/raw-material', name: 'Raw Material' },
     { path: '/standard-recipes', name: 'Standard Recipes' },
+    { path: '/about', name: 'About Westfert' },
+    { path: '/terms-condition', name: 'Terms & Conditions' },
+    { path: '/notifications', name: 'Notifications' },
 ];
 
 const HeaderDashboard = () => {
@@ -59,7 +62,7 @@ const HeaderDashboard = () => {
                             <div className="size-10 rounded-full p-6  flex items-center justify-center bg-[#F2F2F2] ">
                                 <button className="py-4 px-1 relative border-2 border-transparent rounded-full  focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">
                                     <span className="absolute inset-0 -top-4  -mr-4">
-                                        <div className="inline-flex items-center px-1 py-0.3  text-[11px] font-semibold leading-4 rounded-full bg-[#EEC10B]  text-[#5C5C5C">
+                                        <div className="inline-flex items-center px-1 py-0.3  text-[11px] font-semibold leading-4 rounded-full bg-primary  text-[#5C5C5C">
                                             1
                                         </div>
                                     </span>
@@ -73,7 +76,7 @@ const HeaderDashboard = () => {
                         {/* profile */}
 
                         <Link
-                            to={'/profile'}
+                            to={'/admin-profile'}
                             style={{
                                 height: '42px',
                                 cursor: 'pointer',

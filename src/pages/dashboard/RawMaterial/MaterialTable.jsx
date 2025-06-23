@@ -10,7 +10,7 @@ const { Column } = Table;
 
 const MaterialTable = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [deleteTarget, setDeleteTarget] = useState(null); // <- Track modal target
+  const [deleteTarget, setDeleteTarget] = useState(null); 
   const navigate = useNavigate();
 
   const onSelectChange = (newSelectedRowKeys) => {
@@ -27,7 +27,7 @@ const MaterialTable = () => {
       <Table
         dataSource={MaterialData}
         rowSelection={rowSelection}
-        pagination={{ pageSize: 10 }}
+        pagination={{ pageSize: 7 }}
         rowKey="materialCode"
       >
         {/* Material Code */}

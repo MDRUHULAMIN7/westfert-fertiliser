@@ -1,14 +1,13 @@
 
-import React, { useState } from 'react';
-import { Space, Table, Tag } from 'antd';
-import { LockOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Space, Table } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const { Column, ColumnGroup } = Table;
+const { Column, } = Table;
 
 import data from '../../../../database/stafflist.json'
 
-import StaffListHeader from '../../../components/shared/TableHeader';
+import TableHeader from '../../../components/shared/TableHeader';
 
 const ClientsDetails = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -24,9 +23,9 @@ const ClientsDetails = () => {
 
   return (
     <section className='bg-[#F9F9F9] rounded-3xl'>
-    
 
-      <StaffListHeader
+
+      <TableHeader
         title="Customer List"
 
         showSearch={true}
@@ -35,29 +34,29 @@ const ClientsDetails = () => {
         bgColor="bg-[#f0f0f0]"
       />
 
-      
+
       <Table dataSource={data} rowSelection={rowSelection}>
         <Column title="S.no." dataIndex="id" key="id" />
         <Column title="Name" dataIndex="name" key="name" />
         <Column title="Email" dataIndex="email" key="email" />
         <Column title="Company Name" dataIndex="company" key="company" />
-        
+
         <Column
           title="Action"
           key="action"
           render={(_, record) => (
             <Space size="middle">
-       <button
-  onClick={() =>
-    navigate(`/customer-details/${record?.id}`, {
-      state: { from: '/clients-details' },
-    })
-  }
->
-  <img src="/stafflist/detail.png" alt="Detail" />
-</button>
+              <button
+                onClick={() =>
+                  navigate(`/customer-details/${record?.id}`, {
+                    state: { from: '/clients-details' },
+                  })
+                }
+              >
+                <img src="/stafflist/detail.png" alt="Detail" />
+              </button>
 
-              
+
 
 
 

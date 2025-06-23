@@ -5,6 +5,7 @@ import StandardData from '../../../../database/standard.json';
 import DeleteModal from '../../../modal/DeleteModal';
 
 
+
 const { Column } = Table;
 
 const StandardTable = () => {
@@ -26,13 +27,11 @@ const StandardTable = () => {
       <Table
         dataSource={StandardData}
         rowSelection={rowSelection}
-        pagination={{ pageSize: 10 }}
+        pagination={{ pageSize: 7 }}
         rowKey="recipeCode"
       >
-        {/* Material Code */}
         <Column title="Recipe Code" dataIndex="recipeCode" key="recipeCode" />
 
-        {/* Name with Photo */}
         <Column
           title="Name"
           key="nameWithPhoto"
@@ -47,16 +46,9 @@ const StandardTable = () => {
             </div>
           )}
         />
-
-        {/* Components */}
         <Column title="Components" dataIndex="components" key="components" />
-
-        {/* Weight */}
         <Column title="Weight" dataIndex="weight" key="weight" />
-
-        {/* Price */}
         <Column title="Price" dataIndex="price" key="price" />
-
         {/* Actions */}
         <Column
           title="Action"
@@ -66,7 +58,7 @@ const StandardTable = () => {
               {/* Detail button */}
               <img
                 onClick={() => {
-                  navigate(`/standard-recipes/${record?.materialCode}/details`, {
+                  navigate(`/standard-recipes/${record?.recipeCode}/details`, {
                     state: { from: `/standard-recipes` },
                   });
                 }}
@@ -78,7 +70,7 @@ const StandardTable = () => {
               {/* Edit button */}
               <img
                 onClick={() => {
-                  navigate(`/standard-recipes/${record?.materialCode}/edit`, {
+                  navigate(`/standard-recipes/${record?.recipeCode}/edit`, {
                     state: { from:`/standard-recipes` },
                   });
                 }}
@@ -90,7 +82,7 @@ const StandardTable = () => {
               {/* Delete button */}
               <button>
                 <img
-                  onClick={() => setDeleteTarget(record?.materialCode)}
+                  onClick={() => setDeleteTarget(record?.recipeCode)}
                   src="/delete.png"
                   alt="Delete"
                   className="cursor-pointer h-6"
@@ -98,9 +90,9 @@ const StandardTable = () => {
               </button>
 
               {/* Conditional Modal per row */}
-              {deleteTarget === record?.materialCode && (
+              {deleteTarget === record?.recipeCode && (
                 <DeleteModal
-                  materialCode={record?.materialCode}
+                  recipeCode={record?.recipeCode}
                   onClose={() => setDeleteTarget(null)}
                 />
               )}

@@ -19,94 +19,125 @@ import StandardRecipesEditModal from "../modal/StandardRecipesEditModal";
 import StaffAddModal from "../modal/StaffAddModal";
 import ManagerDetailsModal from "../modal/ManagerDetailsModal";
 import SalesDetailsModal from "../modal/SalesDetailsModal";
+import RawAddModal from "../modal/RawAddModal";
+import StandardAddModal from "../modal/StandardAddModal";
+import AppSupport from "../pages/dashboard/AppSupport/AppSupport";
+import About from "../pages/dashboard/About/About";
+import Terms from "../pages/dashboard/Terms/Terms";
+import AdminProfile from "../pages/dashboard/AdminProfile";
+import Notifications from "../pages/dashboard/Notifications";
 
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <ErrorPage></ErrorPage>,
-     children: [
   {
-    path: "",
-    element: <Dashboard />
-  },
-  {
-    path: "/about",
-    element: <div>About Page</div>
-  },
-  {
-    path: "/clients-details",
-    element: <ClientsDetails />
-  },
-  {
-    path: "/customer-details/:id",
-    element: <div><CustomerDetailsModal isOpen={true} /></div>
-  },
-  {
-    path: "/quote-details/:id",
-    element: <QuoteDetailsModal isOpen={true} />
-  },
-  {
-    path: "/quote-history",
-    element: <QuoteHistory />
-  },
-  {
-    path: "/quote-update",
-    element: <QuoteUpdate />
-  },
-  {
-    path: "/raw-material",
-    element: <RawMaterial />
-  },
-  {
-    path: "/raw-material/:id/details",
-    element: <MaterialDetailsModal isOpen={true} />
-  },
-  {
-    path: "/raw-material/:id/edit",
-    element: <RawMaterialEditModal isOpen={true} />
-  },
-  {
-    path: "/stafflist",
-    element: <Stafflist />
-  },
-  {
-    path: "/staffadd-modal",
-    element: <StaffAddModal  />
-  },
-  {
-    path: "/stafflist/:id/edit",
-    element: <div><EditProfileModal isOpen={true} /></div>
-  },
-  {
-    path: "/stafflist/:id/password",
-    element: <div><ChangePasswordModal isOpen={true} /></div>
-  },
-  {
-    path: "/stafflist/manager/:id/details",
-    element: <div><ManagerDetailsModal /></div>
-  },
-  {
-    path: "/stafflist/sales/:id/details",
-    element: <div><SalesDetailsModal /></div>
-  },
-  {
-    path: "/standard-recipes",
-    element: <div><StandardRecipes /></div>
-  },
-  {
-    path: "/standard-recipes/:id/details",
-    element: <StandardRecipesModal isOpen={true} />
-  },
-  {
-    path: "/standard-recipes/:id/edit",
-    element: <StandardRecipesEditModal isOpen={true} />
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "",
+        element: <Dashboard />
+      },
+      {
+        path: "/about",
+        element: <div><About /></div>
+      },
+      {
+        path: "/clients-details",
+        element: <ClientsDetails />
+      },
+      {
+        path: "/customer-details/:id",
+        element: <div><CustomerDetailsModal isOpen={true} /></div>
+      },
+      {
+        path: "/quote-details/:id",
+        element: <QuoteDetailsModal isOpen={true} />
+      },
+      {
+        path: "/quote-history",
+        element: <QuoteHistory />
+      },
+      {
+        path: "/quote-update",
+        element: <QuoteUpdate />
+      },
+      {
+        path: "/raw-material",
+        element: <RawMaterial />
+      },
+      {
+        path: "/raw-material/:id/details",
+        element: <MaterialDetailsModal isOpen={true} />
+      },
+      {
+        path: "/raw-material/:id/edit",
+        element: <RawMaterialEditModal isOpen={true} />
+      },
+      {
+        path: "/rawadd-modal",
+        element: <RawAddModal />
+      },
+      {
+        path: "/stafflist",
+        element: <Stafflist />
+      },
+      {
+        path: "/staffadd-modal",
+        element: <StaffAddModal />
+      },
+      {
+        path: "/stafflist/:id/edit",
+        element: <div><EditProfileModal isOpen={true} /></div>
+      },
+      {
+        path: "/stafflist/:id/password",
+        element: <div><ChangePasswordModal isOpen={true} /></div>
+      },
+      {
+        path: "/stafflist/manager/:id/details",
+        element: <div><ManagerDetailsModal /></div>
+      },
+      {
+        path: "/stafflist/sales/:id/details",
+        element: <div><SalesDetailsModal /></div>
+      },
+      {
+        path: "/standard-recipes",
+        element: <div><StandardRecipes /></div>
+      },
+      {
+        path: "/standard-recipes/:id/details",
+        element: <StandardRecipesModal isOpen={true} />
+      },
+      {
+        path: "/standard-recipes/:id/edit",
+        element: <StandardRecipesEditModal isOpen={true} />
+      },
+      {
+        path: "/standardadd-modal",
+        element: <StandardAddModal />
+      },
+      {
+        path: "/app-support",
+        element: <AppSupport />
+      },
+      {
+        path: "/terms-condition",
+        element: <Terms />
+      },
+      {
+        path: "/admin-profile",
+        element: <AdminProfile />
+      },
+      {
+        path: "/notifications",
+        element: <Notifications />
+      },
+    ]
+
+
   }
-]
-
-
-    }
 ]);
 
 export default router;
