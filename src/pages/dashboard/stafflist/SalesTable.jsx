@@ -1,5 +1,4 @@
 import { Table, Space } from 'antd';
-import { useState } from 'react';
 import { TfiHandPointRight } from 'react-icons/tfi';
 
 // Sample data (you can move this to a JSON file if needed)
@@ -8,18 +7,7 @@ import staffData from '../../../../database/salesDetails.json';
 const { Column } = Table;
 
 const SalesTable = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [selectedStaff, setSelectedStaff] = useState(null);
-  const [modalType, setModalType] = useState('');
 
-  const onSelectChange = (newSelectedRowKeys) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -69,13 +57,10 @@ const SalesTable = () => {
       <Column
         title="Action"
         key="action"
-        render={(_, record) => (
+        render={() => (
           <Space size="middle">
             <span
-              onClick={() => {
-                setSelectedStaff(record);
-                setModalType(record.status === 'Manager' ? 'manager' : 'sales');
-              }}
+              
               className="text-blue-500 underline cursor-pointer"
             >
               <img src="/stafflist/detail.png" alt="Detail" />

@@ -1,6 +1,7 @@
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import DropdownFilterButton from './DropdownFilterButton';
+import { useNavigate } from 'react-router-dom';
 
 
 const { Search } = Input;
@@ -27,8 +28,10 @@ const TableHeader = ({
   menuIcon = null,
   actionButton = null,
   bgColor = 'bg-bgColor',
-  setModal = null
+ 
 }) => {
+
+  const navigate = useNavigate()
   return (
     <div className={`flex flex-col lg:flex-row justify-between items-center ${bgColor} p-4 rounded-tl-[24px] rounded-tr-[24px]`}>
       <h1 className="text-2xl font-medium">{title}</h1>
@@ -51,9 +54,10 @@ const TableHeader = ({
 
         {actionButton && (
           <div
-            onClick={() => {
-              setModal && setModal(true);
-            }}
+              onClick={() =>
+                navigate(actionButton.pathname, {
+                  state: { from: actionButton.back },
+                })}
             className='flex items-center gap-2 text-white text-[16px] bg-primary px-4 rounded-3xl py-2 cursor-pointer'
           >
             {actionButton.icon}

@@ -1,12 +1,11 @@
 import Modal from "./Modal";
 import { FaLock } from "react-icons/fa";
-import { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ManagerDetailsModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
 
-  const [selectedYear, setSelectedYear] = useState('Year');
+
+
   const navigate = useNavigate();
   const { id } = useParams();
 

@@ -1,13 +1,18 @@
-import { Form, Input, Select, DatePicker } from 'antd';
-import { useState } from 'react';
+import { Form, Input, Select, DatePicker, Spin } from 'antd';
 import Modal from './Modal';
-import dayjs from 'dayjs';
+import { useState } from 'react';
 
 export default function EditProfileModal({ isOpen, onClose }) {
     const [form] = Form.useForm();
-
+    const [loading, setLoading] = useState(false);
     const onFinish = (values) => {
-        console.log('Profile Updated:', values);
+
+        setLoading(true)
+
+        setTimeout(() => {
+            console.log('Profile Updated:', values);
+            setLoading(false);
+        }, 1500);
     };
 
     return (
@@ -19,14 +24,6 @@ export default function EditProfileModal({ isOpen, onClose }) {
                     form={form}
                     layout="vertical"
                     onFinish={onFinish}
-                    initialValues={{
-                        name: 'Ceevit',
-                        dob: dayjs('2024-11-12'),
-                        gender: 'Male',
-                        contact1: '073 155 4568',
-                        contact2: 'Square',
-                        address: 'Netherlands',
-                    }}
                     className="bg-bgColor h-[700px] mt-6 p-6 rounded-2xl text-[#636363]"
                 >
                     {/* Profile Picture */}
@@ -62,7 +59,7 @@ export default function EditProfileModal({ isOpen, onClose }) {
                             name="name"
                             rules={[{ required: true, message: 'Please enter your name' }]}
                         >
-                            <Input className="h-10 rounded-md text-[#636363]" />
+                            <Input placeholder="Enter your name" className="h-10 rounded-md text-[#636363]" />
                         </Form.Item>
 
                         <Form.Item
@@ -70,7 +67,11 @@ export default function EditProfileModal({ isOpen, onClose }) {
                             name="dob"
                             rules={[{ required: true, message: 'Please pick a date' }]}
                         >
-                            <DatePicker className="w-full h-10 rounded-md text-[#636363]" format="DD MMM, YYYY" />
+                            <DatePicker
+                                placeholder="Select date of birth"
+                                className="w-full h-10 rounded-md text-[#636363]"
+                                format="DD MMM, YYYY"
+                            />
                         </Form.Item>
 
                         <Form.Item
@@ -78,7 +79,7 @@ export default function EditProfileModal({ isOpen, onClose }) {
                             name="contact1"
                             rules={[{ required: true, message: 'Please enter contact number' }]}
                         >
-                            <Input className="h-10 rounded-md text-[#636363]" />
+                            <Input placeholder="Primary contact number" className="h-10 rounded-md text-[#636363]" />
                         </Form.Item>
 
                         <Form.Item
@@ -94,11 +95,11 @@ export default function EditProfileModal({ isOpen, onClose }) {
                         </Form.Item>
 
                         <Form.Item
-                            label={<span className="text-[#636363]">Contact Number</span>}
+                            label={<span className="text-[#636363]">Alternative Contact</span>}
                             name="contact2"
                             rules={[{ required: true, message: 'Please enter contact number' }]}
                         >
-                            <Input className="h-10 rounded-md text-[#636363]" />
+                            <Input placeholder="Alternative contact number" className="h-10 rounded-md text-[#636363]" />
                         </Form.Item>
 
                         <Form.Item
@@ -106,19 +107,20 @@ export default function EditProfileModal({ isOpen, onClose }) {
                             name="address"
                             rules={[{ required: true, message: 'Please enter address' }]}
                         >
-                            <Input className="h-10 rounded-md text-[#636363]" />
+                            <Input placeholder="Enter your address" className="h-10 rounded-md text-[#636363]" />
                         </Form.Item>
                     </div>
-                 
+
                     <Form.Item className="text-center mt-6">
                         <button
                             type="submit"
-                            className="bg-primary hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300"
+                            className="bg-primary hover:bg-green-600 w-36 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300"
                         >
-                            Save & Change
+                            {loading ? <Spin className="w-full " /> : 'Save & Change'}
                         </button>
                     </Form.Item>
                 </Form>
+
             </div>
         </Modal>
     );

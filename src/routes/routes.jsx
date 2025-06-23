@@ -6,9 +6,6 @@ import Stafflist from "../pages/dashboard/stafflist/Stafflist";
 import ClientsDetails from "../pages/dashboard/ClientsDetails/ClientsDetails";
 import QuoteUpdate from "../pages/dashboard/QuoteUpdate/QuoteUpdate";
 import QuoteHistory from "../pages/dashboard/QuoteHistory/QuoteHistory";
-import SalesDetailsPage from "../pages/dashboard/stafflist/SalesDetailsPage";
-import ManagerDetailsPage from "../pages/dashboard/stafflist/ManagerDetailsPage";
-import Modal from "../modal/Modal";
 import CustomerDetailsModal from "../modal/CustomerDetailsModal";
 import QuoteDetailsModal from "../modal/QuoteDetailsModal";
 import RawMaterial from "../pages/dashboard/RawMaterial/RawMaterial";
@@ -19,6 +16,9 @@ import ChangePasswordModal from "../modal/ChangePasswordModal";
 import StandardRecipes from "../pages/dashboard/StandardRecipes/StandardRecipes";
 import StandardRecipesModal from "../modal/StandardRecipesDetailsModal";
 import StandardRecipesEditModal from "../modal/StandardRecipesEditModal";
+import StaffAddModal from "../modal/StaffAddModal";
+import ManagerDetailsModal from "../modal/ManagerDetailsModal";
+import SalesDetailsModal from "../modal/SalesDetailsModal";
 
 
 const router = createBrowserRouter([
@@ -26,88 +26,85 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         errorElement: <ErrorPage></ErrorPage>,
-        children: [
-            {
-                path: "",
-                element: <Dashboard />
-            },
-            {
-                path: "/stafflist",
-                element: <Stafflist />
-            },
-           
-            {
-                path: "/clients-details",
-                element: <ClientsDetails />
-            },
-            {
-                path: "quote-update",
-                element: <QuoteUpdate />
-            },
-            {
-                path: "/quote-history",
-                element: <QuoteHistory />
-            },
-            {
-                path: "/raw-material",
-                element: <RawMaterial />
-            },
-            {
-                path: "/raw-material/:id/details",
-                element: <MaterialDetailsModal isOpen={true} />
-            },
-            {
-                path: "/raw-material/:id/edit",
-                element: <RawMaterialEditModal isOpen={true} />
-            },
-            {
-                path: "/quote-details/:id",
-                element: <QuoteDetailsModal isOpen={true} />
-            },
-            {
-                path: "/about",
-                element: <div>About Page</div>
-            },
-            {
-                path: "/stafflist/sales/:id/details",
-                element: <div><SalesDetailsPage /></div>
-            },
-            {
-                path: "/stafflist/manager/:id/details",
-                element: <div><ManagerDetailsPage /></div>
-            },
-            {
-                path: "/stafflist/:id/edit",
-                element: <div><EditProfileModal isOpen={true}  /></div>
-            },
-            {
-                path: "/stafflist/:id/password",
-                element: <div><ChangePasswordModal isOpen={true}  /></div>
-            },
-            {
-                path: "/stafflist/modal",
-                element: <div><Modal /></div>
-            },
-            {
-                path: "/customer-details/:id",
-                element: <div><CustomerDetailsModal isOpen={true} /></div>
-            },
-            {
-             path:"/standard-recipes",
-             element:<div><StandardRecipes/></div>
+     children: [
+  {
+    path: "",
+    element: <Dashboard />
+  },
+  {
+    path: "/about",
+    element: <div>About Page</div>
+  },
+  {
+    path: "/clients-details",
+    element: <ClientsDetails />
+  },
+  {
+    path: "/customer-details/:id",
+    element: <div><CustomerDetailsModal isOpen={true} /></div>
+  },
+  {
+    path: "/quote-details/:id",
+    element: <QuoteDetailsModal isOpen={true} />
+  },
+  {
+    path: "/quote-history",
+    element: <QuoteHistory />
+  },
+  {
+    path: "/quote-update",
+    element: <QuoteUpdate />
+  },
+  {
+    path: "/raw-material",
+    element: <RawMaterial />
+  },
+  {
+    path: "/raw-material/:id/details",
+    element: <MaterialDetailsModal isOpen={true} />
+  },
+  {
+    path: "/raw-material/:id/edit",
+    element: <RawMaterialEditModal isOpen={true} />
+  },
+  {
+    path: "/stafflist",
+    element: <Stafflist />
+  },
+  {
+    path: "/staffadd-modal",
+    element: <StaffAddModal  />
+  },
+  {
+    path: "/stafflist/:id/edit",
+    element: <div><EditProfileModal isOpen={true} /></div>
+  },
+  {
+    path: "/stafflist/:id/password",
+    element: <div><ChangePasswordModal isOpen={true} /></div>
+  },
+  {
+    path: "/stafflist/manager/:id/details",
+    element: <div><ManagerDetailsModal /></div>
+  },
+  {
+    path: "/stafflist/sales/:id/details",
+    element: <div><SalesDetailsModal /></div>
+  },
+  {
+    path: "/standard-recipes",
+    element: <div><StandardRecipes /></div>
+  },
+  {
+    path: "/standard-recipes/:id/details",
+    element: <StandardRecipesModal isOpen={true} />
+  },
+  {
+    path: "/standard-recipes/:id/edit",
+    element: <StandardRecipesEditModal isOpen={true} />
+  }
+]
 
-            },
-             {
-                path: "/standard-recipes/:id/details",
-                element: <StandardRecipesModal isOpen={true} />
-            },
-             {
-                path: "/standard-recipes/:id/edit",
-                element: <StandardRecipesEditModal isOpen={true} />
-            },
-            
-
-        ]
 
     }
 ]);

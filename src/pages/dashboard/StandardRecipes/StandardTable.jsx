@@ -9,7 +9,7 @@ const { Column } = Table;
 
 const StandardTable = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [deleteTarget, setDeleteTarget] = useState(null); // <- Track modal target
+  const [deleteTarget, setDeleteTarget] = useState(null); 
   const navigate = useNavigate();
 
   const onSelectChange = (newSelectedRowKeys) => {

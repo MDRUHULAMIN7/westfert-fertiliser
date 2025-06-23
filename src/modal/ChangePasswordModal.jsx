@@ -1,6 +1,5 @@
-import { Form, Input } from 'antd';
+import { Form, Input, Spin } from 'antd';
 import Modal from './Modal';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
@@ -9,10 +8,15 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-  const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
   const onFinish = (values) => {
-    console.log('Password Changed:', values);
+    setLoading(true)
+
+    setTimeout(() => {
+      console.log('Password Changed:', values);
+      setLoading(false);
+    }, 1500);
+
     onClose();
   };
 
@@ -126,9 +130,9 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
           <Form.Item className="mt-6">
             <button
               type="submit"
-              className="bg-primary mx-auto hover:bg-green-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 w-[180px]"
+              className="bg-primary mx-auto hover:bg-green-600  text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 w-[180px]"
             >
-              Save & Change
+              {loading ? <Spin className="w-full " /> : 'Save & Change'}
             </button>
           </Form.Item>
         </Form>

@@ -1,5 +1,5 @@
-import { Form, Input, Select } from 'antd';
-import { useEffect, useState } from 'react';
+import { Form, Input, Select, Spin } from 'antd';
+import { useState } from 'react';
 import Modal from './Modal';
 import Button from '../components/shared/Button';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
@@ -9,12 +9,17 @@ export default function StaffAddModal({ isOpen, onClose }) {
   const [form] = Form.useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
-
+  const [loading, setLoading] = useState(false);
 
 
   // Form submit
   const onFinish = (values) => {
-    console.log('Account Created with:', values); rt
+    setLoading(true)
+
+    setTimeout(() => {
+      console.log('Account Created with:', values);
+      setLoading(false);
+    }, 1500);
   };
 
   return (
@@ -149,7 +154,7 @@ export default function StaffAddModal({ isOpen, onClose }) {
                   borderColor: '#188754',
                 }}
               >
-                Create Account
+                {loading ? <Spin className="w-full " /> : 'Create Account'}
               </Button>
             </Form.Item>
           </Form></SuspenseWithLoader>

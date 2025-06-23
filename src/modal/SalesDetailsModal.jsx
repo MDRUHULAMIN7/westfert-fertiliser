@@ -22,8 +22,7 @@ const chartData = [
   { name: 'Dec', sale: 25000 },
 ];
 
-export default function SalesDetailsModal({ isOpen, onClose, staff,modalType }) {
-  if (!isOpen ) return null;
+export default function SalesDetailsModal({ isOpen, onClose }) {
   const [selectedYear, setSelectedYear] = useState('Year');
    const navigate = useNavigate();
     const handleYearChange = (value) => {
