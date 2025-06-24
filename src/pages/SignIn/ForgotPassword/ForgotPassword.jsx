@@ -21,10 +21,12 @@ const onFinish = (values) => {
   }, 1500);
 };
 
+
   return (
     <div className="bg-[#FDFDFD]  p-8  pt-10 custom-shadow">
-
-      <h1 className="text-[#222222] text-2xl font-semibold">
+        
+    
+      <h1   className="text-[#222222] text-2xl font-semibold">
        Forgot Password ?
       </h1>
 
@@ -65,6 +67,9 @@ const onFinish = (values) => {
         </Form.Item>
 
       </Form>
+  <h1 id='title' className="text-[#222222] text-3xl font-semibold">
+        Sign In
+      </h1>
 
     </div>
   )

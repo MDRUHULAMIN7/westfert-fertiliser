@@ -20,7 +20,7 @@ const SignIn = () => {
   return (
     <div className="bg-[#FDFDFD]  p-8  pt-10 custom-shadow">
 
-      <h1 className="text-[#222222] text-xl font-semibold">
+      <h1 id='title' className="text-[#222222] text-xl font-semibold">
         Sign In
       </h1>
 

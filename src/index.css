@@ -18,3 +18,13 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 -4px 12px rgba(0, 0, 0, 0.05);
  
 }
+
+@view-transition{
+  navigation:auto;
+}
+#title {
+  view-transition-name: title;
+}
+::view-transition-group(*){
+  animation-duration: 1s;
+}
