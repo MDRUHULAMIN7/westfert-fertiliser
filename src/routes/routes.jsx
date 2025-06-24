@@ -30,6 +30,12 @@ import SignInLayout from "../components/layout/SignInLayout";
 import SignIn from "../pages/SignIn/SignIn/SignIn";
 import Faq from "../pages/dashboard/Faq/Faq";
 import FaqEditModal from "../modal/FaqEditModal";
+import ForgotPassword from "../pages/SignIn/ForgotPassword/ForgotPassword";
+import Code from "../pages/SignIn/Code/Code";
+import SetNewPassword from "../pages/SignIn/SetNewPassword/SetNewPassword";
+
+
+
 
 
 const router = createBrowserRouter([
@@ -157,6 +163,18 @@ const router = createBrowserRouter([
          index: true,
           element:<div> <SignIn/> </div>
         },
+        {
+         path:"/signin/forgot-password",
+          element:<div> <ForgotPassword/> </div>
+        },
+        {
+         path:"/signin/code/:email",
+          element:<div> <Code/> </div>
+        },
+        {
+          path:"/signin/:email/newpassword",
+          element:<SetNewPassword></SetNewPassword>
+        }
        ]
   },
   

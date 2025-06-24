@@ -103,8 +103,8 @@ const SignIn = () => {
             </label>
           </Form.Item>
 
-          <Link to={'/forgot-password'} className="text-base text-blue-400 hover:text-primary">
-            Forgot Password?
+          <Link to={'/signin/forgot-password'} className="text-base text-blue-400 hover:text-primary">
+            Forgot Password ?
           </Link>
         </div>
 
