@@ -18,7 +18,7 @@ const SignIn = () => {
 
   };
   return (
-    <div className="bg-[#FDFDFD] p-8 shadow-lg ">
+    <div className="bg-[#FDFDFD]  p-8  pt-10 custom-shadow">
 
       <h1 className="text-[#222222] text-xl font-semibold">
         Sign In
@@ -91,22 +91,22 @@ const SignIn = () => {
             />
           </Form.Item>
         </div>
-   <div className="flex justify-between items-center mt-2 mb-4">
-  <Form.Item
-    name="remember"
-    valuePropName="checked"
-    noStyle
-  >
-    <label className="flex items-center gap-2 text-[#636363] text-base cursor-pointer">
-      <input type="checkbox" value={false} className="accent-primary w-5 h-5 cursor-pointer" />
-      Remember Password
-    </label>
-  </Form.Item>
+        <div className="flex justify-between items-center mt-2 mb-4">
+          <Form.Item
+            name="remember"
+            valuePropName="checked"
+            noStyle
+          >
+            <label className="flex items-center gap-2 text-[#636363] text-base cursor-pointer">
+              <input type="checkbox" value={false} className="accent-primary w-5 h-5 cursor-pointer" />
+              Remember Password
+            </label>
+          </Form.Item>
 
-  <Link to={'/'} className="text-base text-blue-400 hover:text-primary">
-    Forgot Password?
-  </Link>
-</div>
+          <Link to={'/forgot-password'} className="text-base text-blue-400 hover:text-primary">
+            Forgot Password?
+          </Link>
+        </div>
 
 
         {/* Submit Button */}
