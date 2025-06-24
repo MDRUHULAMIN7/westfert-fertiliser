@@ -23,6 +23,7 @@ const path = [
     { path: '/about', name: 'About Westfert' },
     { path: '/terms-condition', name: 'Terms & Conditions' },
     { path: '/notifications', name: 'Notifications' },
+    { path: '/faq', name: 'Faq' },
 ];
 
 const HeaderDashboard = () => {

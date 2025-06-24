@@ -1,7 +1,6 @@
 import { Table, Space } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LockOutlined } from '@ant-design/icons';
 import MaterialData from '../../../../database/material.json';
 import DeleteModal from '../../../modal/DeleteModal';
 

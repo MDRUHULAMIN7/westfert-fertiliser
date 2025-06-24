@@ -17,7 +17,7 @@ export default function DeleteModal({ materialCode, onClose }) {
 
         {/* Subtext */}
         <p className="text-gray-500 mb-10  text-base">
-          Do you want to Delete the fertilizer : {materialCode} ?
+          Do you want to Delete : {materialCode} ?
         </p>
 
         {/* Buttons */}

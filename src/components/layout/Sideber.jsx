@@ -1,18 +1,15 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CiSettings, CiUser } from 'react-icons/ci';
-
-
-import { PiHandCoinsThin, PiNoteDuotone } from 'react-icons/pi';
+import { PiChats, PiHandCoinsThin, PiNoteDuotone } from 'react-icons/pi';
 import { TbNotes } from 'react-icons/tb';
 import { MdKeyboardArrowUp, MdLogout, MdOutlineDriveFolderUpload, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useState } from 'react';
 import { BiCategory } from 'react-icons/bi';
-
-import Logo from '../shared/logo';
 import { BsPeople } from 'react-icons/bs';
 import { LuArrowRightLeft } from 'react-icons/lu';
 import { GiFertilizerBag } from 'react-icons/gi';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
+import Logo from '../shared/Logo';
 
 const menuItems = [
     { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
@@ -22,6 +19,7 @@ const menuItems = [
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
     { label: 'Raw Material ', path: '/raw-material', icon:<PiHandCoinsThin size={22} /> },
     { label: 'Standard Recipes', path: '/standard-recipes', icon:<GiFertilizerBag size={22} /> },
+
    
 
 ];
@@ -35,6 +33,7 @@ const settings = [
              { label: 'App Support', path: '/app-support', icon:<PiNoteDuotone size={22} /> },
             { label: 'About Westfert', path: '/about', icon: <IoMdInformationCircleOutline size={22} /> },
             { label: 'Terms & Condition', path: '/terms-condition', icon: <TbNotes size={22} /> },
+            { label: 'Faq', path: '/faq', icon: <PiChats size={22} /> },
         ],
     },
 ];
@@ -46,7 +45,7 @@ const Sidebar = () => {
     const [isSettingOpen, setIsSettingOpen] = useState(false);
 
     const handleLogout = () => {
-        navigate('/login');
+        navigate('/signin');
     };
     return (
         <div className="h-full fixed " style={{ backgroundColor: '#FEFEFE', fontFamily: 'Poppins' }}>

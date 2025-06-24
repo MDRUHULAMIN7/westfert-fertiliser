@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom"
 
 
 const Logo = () => {
   return (
-    <div className="flex items-center gap-1 mx-6 ">
+    <Link to={''} className="flex items-center gap-1 mx-6 ">
         <div  className="flex flex-col">
-            <h1 className="text-5xl font-bold text-gray-500">Westfert</h1>
-            <h6 className="text-[12px] font-medium text-center text-gray-400">FERTILISERS</h6>
+            <h1 className="text-5xl font-bold text-[#58553A]">Westfert</h1>
+            <h6 className="text-[12px] font-medium text-center text-[#75864D]">FERTILISERS</h6>
         </div>
 
         <div className="w-12 h-12 bg-primary"></div>
-    </div>
+    </Link>
   )
 }
 

@@ -28,6 +28,8 @@ import AdminProfile from "../pages/dashboard/AdminProfile";
 import Notifications from "../pages/dashboard/Notifications";
 import SignInLayout from "../components/layout/SignInLayout";
 import SignIn from "../pages/SignIn/SignIn/SignIn";
+import Faq from "../pages/dashboard/Faq/Faq";
+import FaqEditModal from "../modal/FaqEditModal";
 
 
 const router = createBrowserRouter([
@@ -135,6 +137,14 @@ const router = createBrowserRouter([
       {
         path: "/notifications",
         element: <Notifications />
+      },
+      {
+        path: "/faq",
+        element: <Faq />
+      },
+        {
+        path: "/faq/:id/edit",
+        element: <FaqEditModal  />
       },
     ]
   },

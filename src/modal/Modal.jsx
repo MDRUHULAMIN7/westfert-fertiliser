@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef} from 'react';
 import { IoMdClose } from 'react-icons/io';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const styles = {
   overlay: {
@@ -32,14 +32,14 @@ const styles = {
 
 const Modal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
-  const [animate, setAnimate] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
-  const pathname = location.pathname;
-  const params = useParams();
 
 
-  const backPath = location.state?.from || "/stafflist" || "/clients-details" ;
+
+
+  const backPath = location.state?.from || "/stafflist" 
   console.log( backPath, 'from modal');
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -50,10 +50,10 @@ const Modal = ({ isOpen, onClose, children }) => {
 
     if (isOpen) {
       document.addEventListener('mousedown', handleOutsideClick);
-      setAnimate(true);
+     
     } else {
       document.removeEventListener('mousedown', handleOutsideClick);
-      setAnimate(false);
+    
     }
 
     return () => {

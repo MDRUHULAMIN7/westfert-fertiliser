@@ -2,17 +2,11 @@
 import Modal from "./Modal";
 
 import TableHeader from "../components/shared/TableHeader";
- import { useNavigate, useParams } from 'react-router-dom';
 import CustomerTable from "../pages/dashboard/ClientsDetails/CustomerTable";
 
 
 export default function CustomerDetailsModal({ isOpen, onClose, }) {
   if (!isOpen ) return null;
-
-   const navigate = useNavigate();
-
-   
-     const { id } = useParams();
   
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
