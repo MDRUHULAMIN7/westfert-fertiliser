@@ -9,3 +9,8 @@ body {
     
     
 }
+
+.custom-select .ant-select-selector {
+  border-radius: 0.8rem; /* rounded-lg */
+
+}

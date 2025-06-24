@@ -72,7 +72,7 @@ export default function Faq() {
                   className="cursor-pointer h-6"
                 />
               </button>
-                 {/* Conditional Modal per row */}
+                 {/* Conditional Modal  */}
                             {deleteTarget === faq.id && (
                               <DeleteModal
                                 materialCode={faq.id}
