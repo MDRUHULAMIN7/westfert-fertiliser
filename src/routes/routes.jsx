@@ -33,6 +33,7 @@ import FaqEditModal from "../modal/FaqEditModal";
 import ForgotPassword from "../pages/SignIn/ForgotPassword/ForgotPassword";
 import Code from "../pages/SignIn/Code/Code";
 import SetNewPassword from "../pages/SignIn/SetNewPassword/SetNewPassword";
+import News from "../pages/dashboard/News/News";
 
 
 
@@ -151,6 +152,10 @@ const router = createBrowserRouter([
         {
         path: "/faq/:id/edit",
         element: <FaqEditModal  />
+      },
+      {
+      path:"/news",
+      element:<News></News>
       },
     ]
   },

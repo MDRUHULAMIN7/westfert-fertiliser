@@ -6,12 +6,16 @@ import 'antd/dist/reset.css'; // for AntD v5+
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/routes.jsx'
 import { Toaster } from 'react-hot-toast';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-        <RouterProvider router={router} />
+     <Provider store={store}>
+         <RouterProvider router={router} />
          <Toaster position="top-right" reverseOrder={false} />
+     </Provider>
   </StrictMode>,
 )

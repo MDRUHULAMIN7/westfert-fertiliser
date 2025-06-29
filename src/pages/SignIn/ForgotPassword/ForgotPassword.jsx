@@ -67,9 +67,7 @@ const onFinish = (values) => {
         </Form.Item>
 
       </Form>
-  <h1 id='title' className="text-[#222222] text-3xl font-semibold">
-        Sign In
-      </h1>
+  
 
     </div>
   )
