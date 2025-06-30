@@ -6,13 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import DeleteModal from '../../../modal/DeleteModal';
 import toast from 'react-hot-toast';
 import SuspenseWithLoader from '../../../components/shared/SuspenseWithLoader';
-const NewsTable = () => {
+const NewsTable = ({ newsList,isLoading  }) => {
 
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [deleteTarget, setDeleteTarget] = useState(null);
     const navigate = useNavigate();
-    const { data = [], refetch, isLoading } = useGetNewsQuery();
+    const { refetch} = useGetNewsQuery();
     const [deleteNews] = useDeleteNewsMutation();
+    if(isLoading){
+        console.log('loading')
+    }
 
     if (isLoading) {
         return <SuspenseWithLoader></SuspenseWithLoader>
@@ -115,44 +118,37 @@ const NewsTable = () => {
     ];
     return (
         <div>
-
-            <ConfigProvider 
-            theme={{
+            <ConfigProvider
+                theme={{
                     components: {
                         Pagination: {
                             itemActiveBg: "#6DBD44",
                             borderRadius: "100%",
                             colorPrimary: "white",
-                            bottomLeft :true,
-                          
+                            bottomLeft: true,
                         },
-                        Table:{
-                              rowHoverBg:"#F0F8EC",
-                              headerColor:"#5C5C5C",
-                              headerBg:'#f1f1f1',
-                              linkDecoration:'none',
-                                                       
-                              
+                        Table: {
+                            rowHoverBg: "#F0F8EC",
+                            headerColor: "#5C5C5C",
+                            headerBg: "#f1f1f1",
+                            linkDecoration: "none",
                         },
-                       
-                         
                     },
-                     token:{
-                            colorText:"#767676",
-                            fontSize:14,
-                           
-                        }
+                    token: {
+                        colorText: "#767676",
+                        fontSize: 14,
+                    },
                 }}
             >
-            <Table
-                columns={columns}
-                dataSource={data}
-                rowSelection={rowSelection}
-                pagination={{ pageSize: 7 }}
-                rowKey="_id"
-            />
+                <Table
+                    columns={columns}
+                    dataSource={newsList}
+                    rowSelection={rowSelection}
+                    pagination={{ pageSize: 7 }}
+                    rowKey="_id"
+                />
             </ConfigProvider>
-            </div>
+        </div>
     )
 }
 

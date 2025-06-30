@@ -4,16 +4,22 @@ import DropdownFilterButton from './DropdownFilterButton';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const { Search } = Input;
 
-const CustomSearch = () => {
+const CustomSearch = ({ setSearch, search }) => {
+
+
+
   return (
     <div className="flex items-center bg-[#FBFBFB] shadow-md rounded-full px-2 py-1 w-full lg:w-[364px] h-11">
-      <div className="bg-[#D2EBC5] rounded-full px-2 py-1.5">
+      <div className="bg-[#D2EBC5] rounded-full px-2 py-[7px]">
         <SearchOutlined className="text-[#4a4a32] text-md" />
       </div>
       <Input
         placeholder="Search here"
+        onChange={(e) => setSearch(e.target.value)}
+        value={search}
         bordered={false}
         className="ml-2 focus:outline-none w-full"
       />
@@ -28,7 +34,8 @@ const TableHeader = ({
   menuIcon = null,
   actionButton = null,
   bgColor = '#F9F9F9',
- 
+  setSearch, search
+
 }) => {
 
   const navigate = useNavigate()
@@ -41,12 +48,12 @@ const TableHeader = ({
           {actionIcons?.map((icon, index) => (
             <div className='pt-2' key={index}>{icon}</div>
           ))}
-          {showSearch && <CustomSearch />}
+          {showSearch && <CustomSearch setSearch={setSearch} search={search} />}
         </div>
 
         {menuIcon && (
           <div className='bg-[#FBFBFB] rounded-full'>
-            <DropdownFilterButton menuIcon={menuIcon}> 
+            <DropdownFilterButton menuIcon={menuIcon}>
 
             </DropdownFilterButton>
           </div>
@@ -54,10 +61,10 @@ const TableHeader = ({
 
         {actionButton && (
           <div
-              onClick={() =>
-                navigate(actionButton.pathname, {
-                  state: { from: actionButton.back },
-                })}
+            onClick={() =>
+              navigate(actionButton.pathname, {
+                state: { from: actionButton.back },
+              })}
             className='flex items-center gap-2 text-white text-[16px] bg-primary px-4 rounded-3xl py-2 cursor-pointer'
           >
             {actionButton.icon}

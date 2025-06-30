@@ -5,8 +5,14 @@ export const newsApi2 = api.injectEndpoints({
   endpoints: (builder) => ({
     // get news
     getNews: builder.query({
-      query: () => `/news`,
+      query: (searchTerm = '') => {
+        return {
+          url: `/news`,
+          params: searchTerm ? { search: searchTerm } : {},
+        };
+      },
     }),
+
     // get news by id
     getNewsById: builder.query({
       query: (id) => ({

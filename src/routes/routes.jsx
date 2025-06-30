@@ -152,52 +152,52 @@ const router = createBrowserRouter([
         path: "/faq",
         element: <Faq />
       },
-        {
+      {
         path: "/faq/:id/edit",
-        element: <FaqEditModal  />
+        element: <FaqEditModal />
       },
       {
-      path:"/news",
-      element:<News></News>
+        path: "/news",
+        element: <News></News>
       },
       {
-      path:"/news/newsadd-modal",
-      element:<NewsAddModal></NewsAddModal>
+        path: "/news/newsadd-modal",
+        element: <NewsAddModal></NewsAddModal>
       },
       {
-        path:"/news/:id/edit",
-        element:<NewsEditModal></NewsEditModal>
+        path: "/news/:id/edit",
+        element: <NewsEditModal></NewsEditModal>
       },
       {
-        path:"/news/:id/details",
-        element:<NewsDetailModal></NewsDetailModal>
+        path: "/news/:id/details",
+        element: <NewsDetailModal></NewsDetailModal>
       }
     ]
   },
   {
-       path:"/signin",
-       element:<SignInLayout></SignInLayout>,
-       errorElement: <ErrorPage></ErrorPage>,
-       children:[
-        {
-         index: true,
-          element:<div> <SignIn/> </div>
-        },
-        {
-         path:"/signin/forgot-password",
-          element:<div> <ForgotPassword/> </div>
-        },
-        {
-         path:"/signin/code/:email",
-          element:<div> <Code/> </div>
-        },
-        {
-          path:"/signin/:email/newpassword",
-          element:<SetNewPassword></SetNewPassword>
-        }
-       ]
+    path: "/signin",
+    element: <SignInLayout></SignInLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        element: <div> <SignIn /> </div>
+      },
+      {
+        path: "/signin/forgot-password",
+        element: <div> <ForgotPassword /> </div>
+      },
+      {
+        path: "/signin/code/:email",
+        element: <div> <Code /> </div>
+      },
+      {
+        path: "/signin/:email/newpassword",
+        element: <SetNewPassword></SetNewPassword>
+      }
+    ]
   },
-  
+
 ]);
 
 export default router;
