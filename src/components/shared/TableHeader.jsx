@@ -9,7 +9,7 @@ const { Search } = Input;
 const CustomSearch = () => {
   return (
     <div className="flex items-center bg-[#FBFBFB] shadow-md rounded-full px-2 py-1 w-full lg:w-[364px] h-11">
-      <div className="bg-[#D2EBC5] rounded-full px-2 py-1">
+      <div className="bg-[#D2EBC5] rounded-full px-2 py-1.5">
         <SearchOutlined className="text-[#4a4a32] text-md" />
       </div>
       <Input

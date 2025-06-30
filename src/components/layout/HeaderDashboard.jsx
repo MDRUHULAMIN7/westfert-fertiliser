@@ -24,6 +24,7 @@ const path = [
     { path: '/terms-condition', name: 'Terms & Conditions' },
     { path: '/notifications', name: 'Notifications' },
     { path: '/faq', name: 'Faq' },
+    { path: '/news', name: 'News' },
 ];
 
 const HeaderDashboard = () => {

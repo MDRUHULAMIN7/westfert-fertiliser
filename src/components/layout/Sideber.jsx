@@ -10,7 +10,7 @@ import { LuArrowRightLeft } from 'react-icons/lu';
 import { GiFertilizerBag } from 'react-icons/gi';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import Logo from '../shared/Logo';
-
+import { IoNewspaperOutline } from "react-icons/io5";
 const menuItems = [
     { label: 'Analytics', path: '/', icon: <BiCategory size={22} /> },
     { label: 'Staff List', path: '/stafflist', icon: <CiUser size={22} /> },
@@ -19,6 +19,7 @@ const menuItems = [
     { label: 'Quote History', path: '/quote-history', icon: <LuArrowRightLeft size={22} /> },
     { label: 'Raw Material ', path: '/raw-material', icon:<PiHandCoinsThin size={22} /> },
     { label: 'Standard Recipes', path: '/standard-recipes', icon:<GiFertilizerBag size={22} /> },
+    { label: 'News', path: '/news', icon:<IoNewspaperOutline size={22} /> },
 
    
 
