@@ -133,7 +133,7 @@ export default function NewsEditModal({ isOpen, onClose }) {
                 className="w-full lg:w-[470px] mx-auto bg-primary text-white rounded-md h-10"
                 style={{ borderColor: '#188754' }}
               >
-                {loading ? <Spin className="w-full" /> : 'Edit News'}
+                {loading ? <Spin className="w-full" /> : 'Update News'}
               </Button>
             </Form.Item>
           </Form>

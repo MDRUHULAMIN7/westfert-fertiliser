@@ -1,5 +1,5 @@
 
-import { Table, Space } from 'antd';
+import { Table, Space, ConfigProvider } from 'antd';
 import { useDeleteNewsMutation, useGetNewsQuery } from '../../../redux/api/newsApi2';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -72,7 +72,7 @@ const NewsTable = () => {
             title: 'Action',
             key: 'action',
             render: (_, record) => (
-                <Space size="middle">
+                <Space size="middle" >
                     <img
                         onClick={() =>
                             navigate(`/news/${record?._id}/details`, {
@@ -115,13 +115,44 @@ const NewsTable = () => {
     ];
     return (
         <div>
+
+            <ConfigProvider 
+            theme={{
+                    components: {
+                        Pagination: {
+                            itemActiveBg: "#6DBD44",
+                            borderRadius: "100%",
+                            colorPrimary: "white",
+                            bottomLeft :true,
+                          
+                        },
+                        Table:{
+                              rowHoverBg:"#F0F8EC",
+                              headerColor:"#5C5C5C",
+                              headerBg:'#f1f1f1',
+                              linkDecoration:'none',
+                                                       
+                              
+                        },
+                       
+                         
+                    },
+                     token:{
+                            colorText:"#767676",
+                            fontSize:14,
+                           
+                        }
+                }}
+            >
             <Table
                 columns={columns}
                 dataSource={data}
                 rowSelection={rowSelection}
                 pagination={{ pageSize: 7 }}
                 rowKey="_id"
-            /></div>
+            />
+            </ConfigProvider>
+            </div>
     )
 }
 

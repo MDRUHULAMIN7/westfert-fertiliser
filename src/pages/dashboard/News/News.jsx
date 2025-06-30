@@ -18,7 +18,7 @@ const News = () => {
           pathname:`/news/newsadd-modal`,
           back:"/news"
         }}
-        bgColor="bg-[#f0f0f0]"
+        bgColor="bg-[#F9F9F9]"
        
       />
         <NewsTable></NewsTable>

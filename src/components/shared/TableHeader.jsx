@@ -27,7 +27,7 @@ const TableHeader = ({
   showSearch = true,
   menuIcon = null,
   actionButton = null,
-  bgColor = 'bg-bgColor',
+  bgColor = '#F9F9F9',
  
 }) => {
 
