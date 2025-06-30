@@ -34,6 +34,9 @@ import ForgotPassword from "../pages/SignIn/ForgotPassword/ForgotPassword";
 import Code from "../pages/SignIn/Code/Code";
 import SetNewPassword from "../pages/SignIn/SetNewPassword/SetNewPassword";
 import News from "../pages/dashboard/News/News";
+import NewsAddModal from "../modal/NewsAddModal";
+import NewsEditModal from "../modal/NewsEditModal";
+import NewsDetailModal from "../modal/NewsDetailModal";
 
 
 
@@ -157,6 +160,18 @@ const router = createBrowserRouter([
       path:"/news",
       element:<News></News>
       },
+      {
+      path:"/news/newsadd-modal",
+      element:<NewsAddModal></NewsAddModal>
+      },
+      {
+        path:"/news/:id/edit",
+        element:<NewsEditModal></NewsEditModal>
+      },
+      {
+        path:"/news/:id/details",
+        element:<NewsDetailModal></NewsDetailModal>
+      }
     ]
   },
   {

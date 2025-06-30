@@ -15,7 +15,7 @@ const News = () => {
         actionButton={{
           label: 'Add News',
           icon: <img src="/stafflist/plus.png" alt="plus" />,
-          pathname:"/staffadd-modal",
+          pathname:`/news/newsadd-modal`,
           back:"/news"
         }}
         bgColor="bg-[#f0f0f0]"

@@ -5,13 +5,18 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DeleteModal from '../../../modal/DeleteModal';
 import toast from 'react-hot-toast';
+import SuspenseWithLoader from '../../../components/shared/SuspenseWithLoader';
 const NewsTable = () => {
 
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [deleteTarget, setDeleteTarget] = useState(null);
     const navigate = useNavigate();
-    const { data = [], refetch } = useGetNewsQuery();
+    const { data = [], refetch, isLoading } = useGetNewsQuery();
     const [deleteNews] = useDeleteNewsMutation();
+
+    if (isLoading) {
+        return <SuspenseWithLoader></SuspenseWithLoader>
+    }
     const handleDelete = async (id) => {
         try {
             console.log('handeler', id)
@@ -70,8 +75,8 @@ const NewsTable = () => {
                 <Space size="middle">
                     <img
                         onClick={() =>
-                            navigate(`/testimonial/${record?._id}/details`, {
-                                state: { from: '/testimonial' },
+                            navigate(`/news/${record?._id}/details`, {
+                                state: { from: '/news' },
                             })
                         }
                         src="/stafflist/detail.png"
@@ -80,8 +85,8 @@ const NewsTable = () => {
                     />
                     <img
                         onClick={() =>
-                            navigate(`/testimonial/${record?._id}/edit`, {
-                                state: { from: '/testimonial' },
+                            navigate(`/news/${record?._id}/edit`, {
+                                state: { from: '/news' },
                             })
                         }
                         src="/edit.png"
