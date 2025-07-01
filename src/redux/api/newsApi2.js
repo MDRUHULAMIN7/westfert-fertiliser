@@ -4,6 +4,7 @@ import { api } from "./baseApi";
 export const newsApi2 = api.injectEndpoints({
   endpoints: (builder) => ({
     // get news
+    // get news
     getNews: builder.query({
       query: (searchTerm = '') => {
         return {
